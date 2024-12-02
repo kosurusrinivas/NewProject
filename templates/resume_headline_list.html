@@ -1,0 +1,9 @@
+<h2>Resume Headlines</h2>
+<ul>
+    {% for headline in headlines %}
+        <li>{{ headline.objective }}
+            <a href="{% url 'update_headline' headline.pk %}">Edit</a>
+            <a href="{% url 'delete_headline' headline.pk %}">Delete</a>
+        </li>
+    {% endfor %}
+</ul>

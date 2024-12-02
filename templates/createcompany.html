@@ -1,0 +1,26 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div class="companyheading">
+    <span class="headingtitle">Create a Scientific Page</span>
+    <p class="headingpara">Connect with clients, employees, and the LinkedIn community. To get started, choose a page type.</p>
+</div>
+
+<div style="display: flex; gap: 20px; justify-content: center; margin-top: 50px;">
+    <div class="companydiv">
+        <a href="/Companyadd/"> <div><b>company</b></div>
+        <div>Small,medium and large businesses</div>
+    </a></div>
+
+    <div class="companydiv">
+        <div><b>Showcase Page</b></div>
+        <div>sub-page associated with an existing page</div>
+    </div>
+
+    <div class="companydiv">
+        <div><b>Education institution</b></div>
+        <div>Schools and universities</div>
+    </div>
+</div>
+{%endblock%}

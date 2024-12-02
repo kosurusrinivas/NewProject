@@ -1,0 +1,631 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div class="profilebody">
+    <div class="profilePage">
+        <div class="dashboard">
+            <div class="col">
+                <div class="row">
+                    <div class="img-wrapper col s2 center">
+                        <img src="{% static 'images/profile img1.png' %}" />
+                    </div>
+                    <div class="txt-wrapper col">
+                        <div class="row profilepoststy">
+                            <div class="s12">
+                                <div class="hdn">
+                                    {{ signupfinish.Firstname }} {{ signupfinish.Lastname }}
+                                </div>
+                                <div class="subhdn">
+                                    <div class="desg typ-16Bold">
+                                        <div>
+                                            {{ signupfinish.Designation }}
+                                        </div>
+                                        <div class="typ-14Medium mt4">
+                                            at {{ signupfinish.Companyname }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div>
+                                <a href="/postlogin/"><button class="postsubmit">Add-Post</button></a>
+                                <a href="/logout/"><button class="postsubmit">Logout</button></a>
+                            </div> -->
+                        </div>
+                         <div><button id="follow-button" data-user-id="{{ profile_user.id }}">
+                            {% if is_following %}
+                                {% if is_follow_request %}
+                                    Accept <!-- Follow request is pending -->
+                                {% else %}
+                                    Follow Back <!-- Follow request has been accepted -->
+                                {% endif %}
+                            {% else %}
+                                Follow <!-- Not following -->
+                            {% endif %}
+                        </button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Quick Links Section -->
+        <div>
+            <div class="subdiv">
+                <div class="col widgets quick-link-wrap">
+                    <div>
+                        <div class="card quickLink ">
+                            <ul class="collection">
+                                <li class="collection-header typ-18Bold">Quick links</li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyAttachCV"><span class="text">Resume</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyResumeHead"><span class="text">Resume headline</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyKeySkills"><span class="text">Key skills</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyEmployment"><span class="text">Employment</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyEducation"><span class="text">Education</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyITSkills"><span class="text">IT skills</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyProjects"><span class="text">Projects</span></li>
+                                <li class="collection-item typ-14Medium" data-section="#lazyProfilesummary"><span class="text">Profile summary</span></li>
+                                <li class="collection-item typ-14Medium"><span class="text">Accomplishments</span></li>
+                                <li class="collection-item typ-14Medium"><span class="text">Career profile</span></li>
+                                <li class="collection-item typ-14Medium"><span class="text">Personal details</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="seconddiv">
+            <!-- Resume Upload Section -->
+            <div id="lazyAttachCV" class="card mt15">
+                <div class="attachCV">
+                    <div class="s12 typ-16Bold">Resume</div>
+                    <div class="heading row">
+                        <div class="resumeleft">
+                            <p id="noResumeText" class="truncate exten">{{ latest_resume.filename }}</p>
+                            <div class="updateOn typ-14Regular">
+                                Uploaded on {{ latest_resume.created }}
+                            </div>
+                        </div>
+                        <div class="resume_download right">
+                            <a class="icon-wrap" href="{{ latest_resume.resume.url }}" download>
+                                <img src="{% static 'images/download.svg' %}" style="width: 20px; height: 20px;">
+                            </a>
+                            <!-- <span class="delete DeleteButtonresume" id="DeleteButtonresume" style="cursor: pointer; font-size: 14px;" data-project-id="{{ latest_resume.pk }}" data-project-title="Resume">Delete</span> -->
+                        </div>
+                    </div>
+
+                    <!-- Resume Upload Form -->
+                    <!-- <div class="uploadsty">
+                        <form id="resumeForm" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            {% if form.errors %}
+                                <ul class="errorlist">
+                                    {% for field, errors in form.errors.items %}
+                                        <li>{{ errors }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                            <button type="submit" name="resume_submit" class="filesubmit">Submit</button>
+                        </form>                           
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Resume Headline Section -->
+            <div id="lazyResumeHead" class="resumeHeadline">
+                <div class="card mt15">
+                    <div class="widgetHead">
+                        <span class="widgetTitle typ-16Bold">Resume headline</span>
+                        <!-- {% if not latest_objective.exists %}
+                        <span id="editButtonResume" tabindex="0" class="add no-outline" style="cursor: pointer;">Add details</span>
+                    {% endif %} -->
+                    {% for latest_objective in latest_objective %}
+                    <!-- <span class="delete DeleteButtonheadline" id="DeleteButtonheadline" style="cursor: pointer; font-size: 14px;" data-project-id="{{ latest_objective.pk }}" data-project-title="Resume headline">Delete</span> -->
+                    {% endfor %}
+                    
+                        
+                    </div>
+                    <div class="widgetCont prefill typ-14Medium">
+                        <div><ul>
+                            {% for latest_objective in latest_objective %}
+                                <li>{{ latest_objective.objective }}
+                                    <!-- {% if is_update %}
+                                    <span id="editButtonResume">
+                                        <img src="{% static 'images/edit.svg' %}" style="height: 20px; width: 20px; cursor: pointer;">
+                                    </span>
+                                    
+                                {% endif %} -->
+                                    
+                                </li>
+                            {% endfor %}
+                            
+                        </ul></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Skills Section -->
+            <div id="lazyKeySkills" class="resumeHeadline">
+                <div class="card mt15">
+                    <div class="widgetHead">
+                        <span class="widgetTitle typ-16Bold">Key skills</span>
+                        
+                        <!-- {% if not keyskills.exists %}
+                            <span id="editButtonSkills" tabindex="0" class="add no-outline" style="cursor: pointer;">Add details</span>
+                        {% endif %} -->
+                        <!-- <span id="editButtonSkills" class="edit icon">
+                            <img src="{% static 'images/edit.svg' %}" style="height: 20px; width: 20px; cursor: pointer;">
+                        </span> -->
+                    </div>
+                    {% for keyskill in keyskills %}
+                    <div class="widgetCont prefillkeyskill typ-14Medium">
+                        
+                        <span class="typ-14Medium" title="{{ keyskill.keyskills }}">{{ keyskill.keyskills }}</span>
+                        <!-- <span class="material-icons DeleteButtonkeyskill close1" id="DeleteButtonkeyskill" style="cursor: pointer;" data-project-id="{{ keyskill.pk }}" data-project-title="{{ keyskill.keyskills }}">x</span> -->
+                        
+                       
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div id="lazyEmployment" class="resumeHeadline">
+                <div class="card mt15">
+                    <div class="widgetHead">
+                        <span class="widgetTitle typ-16Bold">Employment</span>
+                        <!-- <span id="editButtonEmployment" tabindex="0" class="add no-outline " style="cursor: pointer;">Add employment</span> -->
+                        
+                    </div>
+                    <div class="widgetCont prefill typ-14Medium">
+                        <div>{% if employment_data %}
+                            {% for employment in employment_data %}
+                                <div class="employement_sty">
+                                    <div class="item title typ-14Bold">
+                                        <!-- Job Title -->
+                                         <div class="form_submision_project">
+                                            <span class="truncate emp-desg" title="{{ employment.current_job }}">{{ employment.current_job }}</span>
+                                        </div>
+                                        <div class="form_edit_button">
+                                            <!-- <span id="editButtonEmployment" class="edit icon styleedit" data-project-id="{{ employment.pk }}">
+                                                <img src="{% static 'images/edit.svg' %}" style="height: 20px; width: 20px; cursor: pointer;">
+                                            </span> -->
+                                            <!-- <span class="delete DeleteButtonemployment" id="DeleteButtonemployment" style="cursor: pointer;" data-project-id="{{ employment.pk }}" data-project-title="{{ employment.current_job }}">Delete</span> -->
+                                        </div>
+                                        </div>
+                                    <div class="item">
+                                    <!-- Company Name -->
+                                        <span class="truncate typ-14Medium emp-org" title="{{ employment.current_company }}">{{ employment.current_company }}</span>
+                                    </div>
+                                    <div class="item experienceType typ-14Regular">
+                                    <!-- Employment Type -->
+                                    <span class="truncate expType">{{ employment.employment_type|title }}</span>
+                                    <span class="ver-line"></span>
+                                    <span class="truncate">{% if employment.years_of_Joining and employment.months_of_Joining %}
+                                        {{employment.months_of_Joining}}{{ employment.years_of_Joining}} 
+                                        to 
+                                        {% if employment.current_employment == 'yes' %}
+                                            Present ({{ employment.total_years }} years {{ employment.total_months }} months)
+                                        {% else %}
+                                            (Duration: {{ employment.years_of_experience }} years {{ employment.months_of_experience }} months)
+                                        {% endif %}
+                                    {% endif %}</span>
+                                </div>
+                        
+                                    <!-- Notice Period -->
+                                    <div class="item emp-notice-prd typ-14Medium">{{ employment.Notice_period }} Notice Period</div>
+                                    
+                                    <div class="item prefill emp-desc typ-14Medium">
+                                        <!-- Job Profile -->
+                                        <div>{{ employment.Job_prfile }}</div>
+                                    </div>
+                                    
+                                    <div class="keyskillList item typ-14Medium">
+                                        <!-- Key Skills -->
+                                        <span class="keySkillHeading">Top 5 key skills:</span>
+                                        <span class="txt-col-n6">{{ employment.skill_used }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="lazyEducation" class="resumeHeadline">
+                <div class="card mt15">
+                    <div class="widgetHead">
+                        <span class="widgetTitle typ-16Bold">Education</span>
+                        <!-- <span id="editButtonEducation" tabindex="0" class="add no-outline " style="cursor: pointer;">Add education</span> -->
+                        <!-- <span id="editButtonEducation" class="edit icon">
+                            <img src="{% static 'images/edit.svg' %}" style="height: 20px; width: 20px; cursor: pointer;">
+                        </span> -->
+                    </div>
+                    <div class="widgetCont prefill typ-14Medium">
+                        <div>{% if education_data %}
+                            {% for education in education_data %}
+                                <div class="employement_sty">
+                                    <div class="item title typ-14Bold">
+                                        <!-- Job Title -->
+                                         <div class="form_submision_project">
+                                            <span class="truncate emp-desg" title="{{ education.select_education }}">{{ education.select_education }}</span>
+                                    <span class="ver-line"></span>
+                                    <span class="truncate emp-desg" title="{{ education.specialixation }}">{{ education.specialixation }}</span>
+                                        </div>
+                                        <div class="form_edit_button">
+                                            <!-- <span id="editButtonEducation" class="edit icon styleedit" data-education-id="{{ education.pk }}">
+                                                <img src="{% static 'images/edit.svg' %}" style="height: 20px; width: 20px; cursor: pointer;">
+                                            </span> -->
+                                            <!-- <span class="delete DeleteButtoneducation" id="DeleteButtoneducation" style="cursor: pointer;" data-project-id="{{ education.pk }}" data-project-title="&nbsp;{{ education.select_education }}&nbsp;|&nbsp;{{ education.specialixation }}&nbsp;">Delete</span> -->
+                                        </div>
+                                        </div>
+                                    <div class="item">
+                                    <!-- Company Name -->
+                                        <span class="truncate typ-14Medium emp-org" title="{{ education.university }}">{{ education.university }}</span>
+                                    </div>
+                                    <div class="item experienceType typ-14Regular">
+                                    <!-- Employment Type -->
+                                    <span class="truncate expType">{{ education.startingyear_of_course }}-{{education.endingyear_of_course}}</span>
+                                    <span class="ver-line"></span>
+                                    <span class="truncate">{{ education.course_type }}</span>
+                                </div>
+                        
+                                    
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lazyITSkills" class="resumeHeadline">
+                <div class="card mt15"><!-- react-empty: 480 -->
+                    <div class="widgetHead">
+                        <span class="widgetTitle typ-16Bold">IT skills</span>
+                                <!-- <span id="editButtonitSkill" tabindex="0" class="add no-outline " style="cursor: pointer;">Add details</span> -->
+                            </div>
+                            <div class="widgetCont">
+                                <div class="prefill">
+                                    {% if itskills_data %}
+                                   
+                                    <ul class="mb0">
+                                        <li class="collection first-child" >
+                                            <span class="col s3">Skills</span>
+                                            <span class="col version">Version</span>
+                                            <span class="col s3">Last used</span>
+                                            <span class="col s3">Experience</span>
+                                            <span class="col s1"></span>
+                                        </li>
+                                        {% for itskills in itskills_data %}
+                                        <li class="collection second-child" >
+                                            <span class="col s3 ">{{itskills.skill_software_name}}</span>
+                                            <span class="col version ">{{itskills.software_version}}</span>
+                                            <span class="col s3">{{itskills.last_used}}</span>
+                                            <span class="col s3">{{itskills.years_of_experiences}}&nbsp;{{itskills.months_of_experiences}}</span>
+                                            <!-- <span id="editButtonitSkill" class="edit icon " data-itskill-id="{{ itskills.pk }}">
+                                            <img class="col icon edit right-align"  src="{% static 'images/edit.svg' %}" style="height: 13px; width: 20px; cursor: pointer;">
+                                            </span> -->
+                                            <!-- <span class="delete DeleteButtonitskills" id="DeleteButtonitskills" style="cursor: pointer;" data-project-id="{{ itskills.pk }}" data-project-title="{{ itskills.skill_software_name }}">Delete</span> -->
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                    
+                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div id="lazyProjects" class="resumeHeadline">
+                        <div class="card mt15">
+                            <div class="widgetHead">
+                                <span class="widgetTitle typ-16Bold">Projects</span>
+                                <!-- <span id="editButtonProjects" tabindex="0" class="add no-outline " style="cursor: pointer;" >Add details</span> -->
+                                
+                            </div>
+                            <div class="widgetCont prefill typ-14Medium">
+                                <div>
+                                    {% if project_data %}
+                            {% for project in project_data %}<div class="employement_sty">
+                                <div class="item title typ-14Bold">
+                                <!-- Job Title -->
+                                 <div class="form_submision_project">
+                                    <span class="truncate emp-desg" title="{{ project.project_title }}">{{ project.project_title }}</span>
+                                </div>
+                                <div class="form_edit_button">
+                                    <!-- <span id="editButtonProjects" class="edit icon styleedit" data-project-id="{{ project.pk }}">
+                                        <img src="{% static 'images/edit.svg' %}" style="height: 20px; width: 20px; cursor: pointer;">
+                                    </span> -->
+                                    <!-- <span class="delete DeleteButtonProjects" id="DeleteButtonProjects" style="cursor: pointer;" data-project-id="{{ project.pk }}" data-project-title="{{ project.project_title }}">Delete</span> -->
+                                </div>
+                                </div>
+                                <div class="item">
+                                <!-- Company Name -->
+                                    <span class="truncate typ-14Medium emp-org" title="{{ project.client }}">{{ project.client }}({{project.project_site_choices}})</span>
+                                </div>
+                                <div class="item experienceType typ-14Regular">
+                                <!-- Employment Type -->
+                                <span class="truncate expType">{{ project.month_of_working }}&nbsp;{{project.year_of_working}}</span>
+                                <span class="ver-line"></span>
+                                <span class="truncate">{{ project.employment_type_project }}</span>
+                                
+                            </div>
+                            <div class="item prefill emp-desc typ-14Medium">
+                                <!-- Job Profile -->
+                                <div>{{ project.details_of_project }}</div>
+                            </div>
+                                
+                            </div>
+                                {% endfor %}
+                                {% endif %}
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="lazyProfilesummary" class="resumeHeadline">
+                        <div class="card mt15">
+                            <div class="widgetHead">
+                                <span class="widgetTitle typ-16Bold">Profile summary</span>
+                                <!-- {% if not summary_data.exists %}
+                                <span id="editButtonprofilesummary" tabindex="0" class="add no-outline " style="cursor: pointer;">Add details</span>
+                                {% endif %} -->
+                                
+                                {% for summary in summary_data %}
+                                <!-- <span id="editButtonprofilesummary" class="edit icon">
+                                    <img src="{% static 'images/edit.svg' %}" style="height: 15px; width: 20px; cursor: pointer;">
+                                </span> -->
+                                <!-- <span class="delete DeleteButtonsummary typ-14Bold" id="DeleteButtonsummary" style="cursor: pointer;" data-project-id="{{ summary.pk }}" data-project-title="Profile summary">Delete</span> -->
+                            </div>
+                            
+                            <div class="widgetCont prefill typ-14Medium">
+                                <div>OBJECTIVE:{{summary.summary}}
+                                    
+                                    
+                                </div>
+                                
+
+                            </div>
+                            {% endfor %}
+                            
+                        </div>
+                    </div>
+                    
+                    <div id="lazyCareerprofile" class="resumeHeadline">
+                        <div class="card mt15">
+                            <div class="widgetHead">
+                                <span class="widgetTitle typ-16Bold">Career profile</span>
+                                <!-- {% if not career_data.exists %}
+                                <span id="editButtoncareerprofile" tabindex="0" class="add no-outline " style="cursor: pointer;">Add details</span>
+                                {% endif %} -->
+                                {% for career in career_data %}
+                                <!-- <span id="editButtoncareerprofile" class="edit icon" data-career-id="{{ career.pk }}">
+                                    <img src="{% static 'images/edit.svg' %}" style="height: 15px; width: 20px; cursor: pointer;">
+                                </span> -->
+                                <!-- <span class="delete DeleteButtoncareerprofile typ-14Bold" id="DeleteButtoncareerprofile" style="cursor: pointer;" data-project-id="{{ career.pk }}" data-project-title="{{ career.Job_role }}">Delete</span> -->
+                                {% endfor %}
+                               
+                                
+                            </div>
+                            {% for career in career_data %}
+                            <div class="widgetCont prefill typ-14Medium">
+                                <div>
+                                    <div class="widgetCont m0">
+                                        <div class="row hori-list mb0">
+                                            <div class="col s6 ">
+                                                <div class="title">Current industry</div>
+                                                <div class="desc">{{career.Current_industry}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Department</div>
+                                                <div class="desc">{{career.Department}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Role category</div>
+                                                <div class="desc">{{career.Role_category}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Job role</div>
+                                                <div class="desc">{{career.Job_role}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Desired job type</div>
+                                                <div class="desc">{{career.job_type_project}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Desired employment type</div>
+                                                <div class="desc">{{career.employment_type_career}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Preferred shift</div>
+                                                <div class="desc">{{career.shift_type_project}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Preferred work location</div>
+                                                <div class="desc">{{ career.location|slice:"1:-1"|striptags }}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Expected salary</div>
+                                                <div class="desc">{{career.salary}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    
+                                </div>
+                                
+
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div id="lazyCareerprofile" class="resumeHeadline">
+                        <div class="card mt15">
+                            <div class="widgetHead">
+                                <span class="widgetTitle typ-16Bold">Personal details</span>
+                                <!-- {% if not personal_data.exists %}
+                                <span id="editButtonPersonaldetails" tabindex="0" class="add no-outline " style="cursor: pointer;">Add details</span>
+                                {% endif %} -->
+                                {% for personal in personal_data %}
+                                <!-- <span id="editButtonPersonaldetails" class="edit icon" data-Personal-id="{{ personal.pk }}">
+                                    <img src="{% static 'images/edit.svg' %}" style="height: 15px; width: 20px; cursor: pointer;">
+                                </span> -->
+                                <!-- <span class="delete DeleteButtonpersonal typ-14Bold" id="DeleteButtonpersonal" style="cursor: pointer;" data-project-id="{{ personal.pk }}" data-project-title="Personal details">Delete</span> -->
+                                {% endfor %}
+                                
+                            </div>
+                            {% for personal in personal_data %}
+                            <div class="widgetCont prefill typ-14Medium">
+                                <div>
+                                    <div class="widgetCont m0">
+                                        <div class="row hori-list mb0">
+                                            <div class="col s6 ">
+                                                <div class="title">Personal</div>
+                                                <div class="desc">{{personal.gender_type_project}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Career break</div>
+                                                <div class="desc">{{personal.career_break_type_career}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Date of birth</div>
+                                                <div class="desc">{{personal.date}}/{{personal.month}}/{{personal.year}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Differently abled</div>
+                                                <div class="desc">{{personal.differently_abled_type_career}}</div>
+                                            </div>
+                                            <div class="col s6">
+                                                <div class="title">Address</div>
+                                                <div class="desc">{{personal.permanent_address}},&nbsp;{{personal.hometown}},&nbsp;{{personal.pincode}}</div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                
+                                    
+                                </div>
+                                
+
+                            </div>
+                            {% endfor %}
+                                
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    </div>
+</div>
+
+<script>
+    // Function to make the quick link sticky
+    window.onscroll = function() {
+        makeSticky();
+    };
+    
+    var quickLink = document.querySelector(".card.quickLink");
+    var sticky = quickLink.offsetTop;
+    
+    function makeSticky() {
+        if (window.pageYOffset > sticky) {
+            quickLink.classList.add("sticky");
+        } else {
+            quickLink.classList.remove("sticky");
+        }
+    }
+    
+    // Function to scroll to the section when a list item is clicked
+    document.querySelectorAll('.collection-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+            var sectionId = this.getAttribute('data-section');
+            var section = document.querySelector(sectionId);
+    
+            if (section) {
+                // Smoothly scroll to the section
+                section.scrollIntoView({
+                    behavior: 'smooth'
+                });
+    
+                // Optionally highlight the clicked item (remove active from others)
+                document.querySelectorAll('.collection-item').forEach(function(li) {
+                    li.classList.remove('active');
+                });
+                this.classList.add('active');
+            }
+        });
+    });
+    
+    
+    
+       </script>
+
+
+<script>
+    document.getElementById('follow-button').addEventListener('click', function() {
+        var button = this;
+        var userId = button.getAttribute('data-user-id');
+    
+        // Send an AJAX request to follow/unfollow or accept follow request
+        fetch(`/follow/${userId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'followed') {
+                button.textContent = 'Follow Back';
+            } else if (data.status === 'accepted') {
+                button.textContent = 'Follow Back';
+            } else if (data.status === 'requested') {
+                button.textContent = 'Accept';
+            } else {
+                button.textContent = 'Follow';
+            }
+        });
+    });
+    </script>
+    <script>
+    function loadNotifications() {
+    fetch('/notifications/')
+    .then(response => response.json())
+    .then(data => {
+        const notificationList = document.getElementById('notification-list');
+        notificationList.innerHTML = '';
+        data.notifications.forEach(function(notification) {
+            const item = document.createElement('div');
+            item.classList.add('notification-item');
+            item.innerHTML = `<p>${notification.message}</p><small>${notification.created_at}</small>`;
+            notificationList.appendChild(item);
+        });
+    });
+}
+
+setInterval(loadNotifications, 5000); // Poll every 5 seconds
+</script>
+
+{% endblock %}

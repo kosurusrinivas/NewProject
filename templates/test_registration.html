@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Registration Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Post a Job</h2>
+        <form method="post">
+            {% csrf_token %}
+            
+            <!-- Job Details -->
+            <div class="mb-3">
+                <label for="id_job_title" class="form-label">Job Title</label>
+                {{ form.job_title }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_company_name" class="form-label">Company Name</label>
+                {{ form.company_name }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_workplace" class="form-label">Workplace Type</label>
+                {{ form.workplace }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_job_location" class="form-label">Job Location</label>
+                {{ form.job_location }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_job_type" class="form-label">Job Type</label>
+                {{ form.job_type }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_description" class="form-label">Job Description</label>
+                {{ form.description }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_skills" class="form-label">Skills</label>
+                {{ form.skills }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_identify_source" class="form-label">Identify Source</label>
+                {{ form.identify_source }}
+            </div>
+
+            <div class="mb-3">
+                <label for="id_additional_info" class="form-label">Additional Information</label>
+                {{ form.additional_info }}
+            </div>
+
+            <!-- Qualifications -->
+            <h4 class="mt-4">Select Qualifications</h4>
+            <div class="form-check">
+                {% for qualification in qualifications %}
+                <div class="mb-2">
+                    <input type="checkbox" class="form-check-input" name="qualifications" id="qualification_{{ qualification.id }}" value="{{ qualification.id }}">
+                    <label class="form-check-label" for="qualification_{{ qualification.id }}">{{ qualification.name }}</label>
+                    
+                    <!-- Must-have checkbox -->
+                    <input type="checkbox" class="form-check-input ms-2" name="must_have_{{ qualification.id }}" id="must_have_{{ qualification.id }}">
+                    <label class="form-check-label" for="must_have_{{ qualification.id }}">Must Have</label>
+                </div>
+                {% endfor %}
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-4">Submit</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,1381 @@
+{% extends 'templates/feedforemployer.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+
+
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<form method="POST" action="">
+    {% csrf_token %}
+<div id="formOne">
+<div style="display: flex; gap: 20px; align-items: flex-start;">
+<div class="leftside">
+    <!-- Buttons to Switch Between Forms -->
+     <div id="login-form-container">
+    <div class="homePageContainer">
+        <div class="wrapper-head" >
+            <div class="rightContainer">
+                <div id="toggleRCBLoginForm" class="right-cont-mobile fr_posting tabbing">
+     <div id="rcommerce_root">
+    
+
+    <div class="mobile_verification ocp_desktop" id="formTwoContainer">
+        {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% if field.errors %}
+                    <li><strong>{{ field.label }}:</strong>
+                        <ul>
+                            {% for error in field.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+        
+            <div class="ocp_common_heading">Job details</div>
+            <div style="padding: 20px 24px 0;" >
+            <div class="fields">
+            <div class="field-left">
+                <label for="Job title" class="loginsty labelmargin" >Job title</label>
+                <input type="text" id="jobtitle" name="job_title" class="userinputsty" placeholder="Add the title you are hiring for">
+                {% if form.jobtitle.errors %}
+        <div class="error">
+            {% for error in form.jobtitle.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+            </div>
+            <div class="field-right">
+                <label for="Job title" class="loginsty labelmargin" >Company</label>
+                <input type="text" id="companyname" name="company_name" class="userinputsty" placeholder="Add the company name" oninput="displayCompanyName()" maxlength="25" required>
+                {% if form.companyname.errors %}
+        <div class="error">
+            {% for error in form.companyname.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="field-left">
+                <div class="dropdown-container">
+                    <label for="workplace" class="loginsty labelmargin">Workplace Type</label>
+                    <input type="text" id="workplace" name="workplace" class="userinputsty" placeholder="Select Workplace type" readonly onclick="toggleDropdown()" required>
+                    {% if form.workplace.errors %}
+        <div class="error">
+            {% for error in form.workplace.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+                    
+                    <ul class="dropdown-menu dropdown" id="dropdownMenu" style="display: none;">
+                        <li data-value="On-site" onclick="selectWorkplaceType('On-site')">On-site</li>
+                        <li data-value="Off-site" onclick="selectWorkplaceType('Off-site')">Off-site</li>
+                        <li data-value="Remote" onclick="selectWorkplaceType('Remote')">Remote</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="field-right">
+                <label for="Job title" class="loginsty labelmargin" >Job location</label>
+                <input type="text" id="Joblocation" name="job_location" class="userinputsty" placeholder="Add the Job location" required>
+                {% if form.Joblocation.errors %}
+        <div class="error">
+            {% for error in form.Joblocation.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+            </div>
+        </div>
+
+        <div class="fields">
+            <div class="field-left">
+                <div class="dropdown-containerjobtype">
+                <label for="Job type" class="loginsty labelmargin" >Job type</label>
+                <input type="text" id="jobtype" name="job_type" class="userinputsty" placeholder="Select Job type" required>
+                {% if form.jobtype.errors %}
+        <div class="error">
+            {% for error in form.jobtype.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+                <ul class="dropdown-menujobtype dropdown" >
+                    <li data-value="Full-time">Full-time</li>
+                    <li data-value="Part-time">Part-time</li>
+                    <li data-value="Contract">Contract</li>
+                    <li data-value="Temporary">Temporary</li>
+                    <li data-value="Others">Others</li>
+                    <li data-value="Contract">Volunteer</li>
+                  </ul>
+                </div>
+            </div>
+        </div>
+        <div class="ocp_common_descripsion">Description </div>
+            <!-- <textarea id="tinymce"></textarea> -->
+        
+            <!-- <div id="phoneInputContainer">
+                <input id="phone" type="tel" placeholder="Enter Mobile numbe" class="mobileinput"/>
+            </div>            <br><br> -->
+            
+        <div id="editor" contenteditable="true" name="description"></div>
+        <input type="hidden" name="description" id="hidden-description">
+
+        {% if form.Description.errors %}
+        <div class="error">
+            {% for error in form.Description.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+        
+        <div class="ocp_common_descripsion">Skills</div>
+        <div id="skills-container">
+            <div id="selected-skills"></div>
+            <input type="hidden" name="skills" id="hidden-skills">
+            <input type="text" id="skills-input" placeholder="Type to add a skill..."  class="userinputsty" />
+            {% if form.selectedskill.errors %}
+        <div class="error">
+            {% for error in form.selectedskill.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+            <ul id="skills-dropdown" class="dropdown"></ul>
+        </div>
+
+                <div class="dropdown-containeradd">
+                <label for="Job title" class="loginsty labelmargin" >How did you hear about Scientificiq jobs?</label>
+                <input type="text" id="identify" name="identify_source" class="userinputsty" placeholder="Select Workplace type" required>
+                {% if form.identify.errors %}
+                <div class="error">
+                    {% for error in form.identify.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+                
+                    <ul class="dropdown-menuadd dropdownadd">
+                      <li data-value="In the mail">In the mail</li>
+                      <li data-value="Podcast">Podcast</li>
+                      <li data-value="Online ad">Online ad</li>
+                      <li data-value="Search engine">Search engine</li>
+                      <li data-value="Streaming ad">Streaming ad</li>
+                      <li data-value="Others">Others</li>
+                    </ul>
+                  </div>
+                  <footer class="job-posting-footer ">
+                    <div class="mr2 ">
+                        
+            
+                <button aria-label="Preview job post" id="editButtonSkills" class="artdeco-button artdeco-button--2 artdeco-button--tertiary ember-view mr2" type="button" fdprocessedid="fe2zfb"><!---->
+            <span class="artdeco-button__text">
+                Preview
+            </span></button>
+            
+                <div id="ember101" class="ember-view"><!----></div>
+              
+                    </div>
+                    <div>
+            <!---->
+                      <div class="display-flex align-items-flex-end">
+                          <button id="ember102" class="job-posting-footer__secondary-cta artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--secondary ember-view" type="button" fdprocessedid="zhs2q"><!---->
+            <span class="artdeco-button__text">
+                Back
+            </span></button>
+            
+                        <button id="ember103" class="artdeco-button artdeco-button--2 artdeco-button--primary ember-view" data-validate-submit-type="Next" type="button" fdprocessedid="449e5n" onclick="showFormTwo()"><!---->
+            <span class="artdeco-button__text">
+                Next
+            </span></button>
+                      </div>
+                    </div>
+                  </footer>
+
+        
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="rightside">
+    <div class="mobile_verification ocp_desktop " style="display: flex;">
+        <div class="draft-left" style="width: 30%;">ksdnbfjknfjkn</div>
+        <div class="display-sty">
+        <div id="displayJobTitle" ></div>
+        <div id="displayCompanyName" class="display-company">
+            <!-- Placeholder text or leave empty -->
+            <div id="companyNameText" class="companyname"></div>
+        </div>
+        <div class="selected-workplace display-company">
+            <label></label>
+            <div id="selectedWorkplace"></div>
+        </div>
+        <span id="display-area" class="display-company"></span>
+    </div>
+    </div>
+    
+</div>
+
+<div id="skillsModal" class="modal">
+    <div class="lightbox profileEditDrawer resumeHeadlineEdit model_open">
+        <div class="modal-content">
+            <span class="close skillsClose">&times;</span>
+            <div class="s12 lbpadding">
+                <div class="editHeader">
+                    <span class="mb5">Preview job post</span>
+                    <div class="lbl widgetDesc">
+                        This is a preview of what your job post will look like to job seekers, which includes details about your job such as company size and location, as well as information around when you created your LinkedIn profile. Candidates will answer screening questions when they apply.
+                    </div>
+                </div>
+            
+                <div class="rowprofile">
+                    
+                    
+                    <div class="sugComp">
+                        <div>
+                            <div class="suggest keySkillSuggCont">
+                                <div class="sWrap">
+                                    
+                                    <div class="inpWrap">
+                                        <div id="jobTitleInModal" class="fontsty"></div>
+                                        <div class="dynamicchange">
+                                        <div id="displayCompanyName" class="display-company">
+                                            <!-- Placeholder text or leave empty -->
+                                            <span id="companyNameInModal"></span>
+                                        </div>
+                                        <span id="JoblocationInModal" class="display-company"></span>
+                                        <div id="workplaceInModal"></div>
+                                        <div id="jobTypeInModal" class="modal-jobtype-display"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rowedit">
+                        <div class="action s12">
+                            <a class="cancel-btn" href="javascript:void(0)" id="skillsCancelButton">Cancel</a>
+                            <button type="submit" name="keyskills_submit" class="btn-dark-ot">Save</button>
+                        </div>
+                    </div>
+                
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+    <!-- Output area to display form data -->
+    <div id="output"></div>
+
+    <div id="formTwo" style="display:none;">
+    <div id="wrapper ov" style="margin-top: 100px;"></div>
+    <div style="display: flex; gap: 20px; align-items: flex-start;">
+    <div class="leftside">
+        <!-- Buttons to Switch Between Forms -->
+         <div id="login-form-container">
+        <div class="homePageContainer">
+            <div class="wrapper-head" >
+                <div class="rightContainer">
+                    <div id="toggleRCBLoginForm" class="right-cont-mobile fr_posting tabbing">
+         <div id="rcommerce_root">
+        
+    
+        <div class="mobile_verification ocp_desktop" id="formTwoContainer">
+                <div class="ocp_common_heading">Applicant collection</div>
+                <div style="padding: 20px 24px 0;" >
+                <div class="fields">
+                <div class="field-left">
+                    <label for="Job title" class="loginsty labelmargin" >Receive applicants</label>
+                    <select id="selectField" class="userinputsty" onchange="changePlaceholder()" >
+                        <option value="">Select an option</option>
+                        <option value="email">Email</option>
+                        <option value="website">Website</option>
+                    </select>
+                </div>
+                <div class="field-right">
+                    <label for="inputField" class="loginsty labelmargin" >Enter value</label>
+                    <input type="text" id="inputField" name="additional_info" class="userinputsty" placeholder="Select an option above" oninput="updateApplyLink()">
+                    {% if form.additional_info.errors %}
+                    <div class="error">
+                        {% for error in form.additional_info.errors %}
+                            <p>{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                </div>
+            </div>
+            <div id="extraFields" class="hidden">
+            <div class="ocp_box_heading">Screening questions</div>
+            
+                
+                
+            <!-- {% for qualification in form.qualifications %}
+            <div id="infoBox1" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Have you completed the following level of education: Bachelor's Degree?</span><span class="close-btn" onclick="closeInfoBox('infoBox1')">X</span></div>
+                
+                
+                
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            
+            
+            
+            <div id="infoBox2" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">How many years of work experience do you have with Core?</span><span class="close-btn" onclick="closeInfoBox('infoBox2')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer (minimum):</h4>
+                <span><input type="number" min="0" max="99" step="1" id="numberInput" class="coreexp"></span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+                </div>
+            </div>
+    
+            
+            
+            
+            <div id="infoBox3" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">How many years of work experience do you have with Programming?</span><span class="close-btn" onclick="closeInfoBox('infoBox3')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span><input type="number" min="0" max="99" step="1" id="numberInput" class="coreexp"></span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox4" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you willing to undergo a background check, in accordance with local law/regulations?</span><span class="close-btn" onclick="closeInfoBox('infoBox4')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox5" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Do you have a valid driver's license?</span><span class="close-btn" onclick="closeInfoBox('infoBox5')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox6" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you willing to take a drug test, in accordance with local law/regulations?</span><span class="close-btn" onclick="closeInfoBox('infoBox6')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+            <div id="infoBox7" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">How many years of work experience do you have with [Skill]?</span><span class="close-btn" onclick="closeInfoBox('infoBox7')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <div style="display: flex;">
+                    <div style="width: 33%;">
+                        <h4>Skill</h4>
+                        <input type="text" class="expskill" placeholder="Skill">
+                    </div>
+    
+                    <div style="width: 33%;" >
+                        <h4>Ideal Answer:</h4>
+                    <span><input type="number" min="0" max="99" step="1" id="numberInput" class="expskill"></span>
+                    </div>
+                    <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                    <label style="float: right; vertical-align: bottom;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+    
+            <div id="infoBox8" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you comfortable working in a hybrid setting?</span><span class="close-btn" onclick="closeInfoBox('infoBox8')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox9" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">How many years of [Industry] experience do you currently have?</span><span class="close-btn" onclick="closeInfoBox('infoBox9')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <div style="display: flex;">
+                    <div style="width: 33%;">
+                        <h4>Industry</h4>
+                        <input type="text" class="expskill" placeholder="Industry">
+                    </div>
+    
+                    <div style="width: 33%;" >
+                        <h4>Ideal Answer:</h4>
+                    <span><input type="number" min="0" max="99" step="1" id="numberInput" class="expskill"></span>
+                    </div>
+                    <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                    <label style="float: right; vertical-align: bottom;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+            <div id="infoBox10" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">What is your level of proficiency in [Language]?</span><span class="close-btn" onclick="closeInfoBox('infoBox10')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <div style="display: flex;">
+                    <div style="width: 33%;">
+                        <h4>Language</h4>
+                        <input type="text" class="expskill" placeholder="Language">
+                    </div>
+    
+                    <div style="width: 33%;" >
+                        <h4>Ideal Answer:</h4>
+                    <input type="text" id="inputFieldlang" class="expskill" placeholder="Click for options" readonly>
+                    <div id="dropdownlang" class="dropdown">
+                        <div class="dropdown-option">None</div>
+                        <div class="dropdown-option">Conversational</div>
+                        <div class="dropdown-option">Professional</div>
+                        <div class="dropdown-option">Native or bilingual</div>
+                    </div>
+                    </div>
+                    <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                    <label style="float: right; vertical-align: bottom;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+    
+            <div id="infoBox11" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you comfortable commuting to this job's location?</span><span class="close-btn" onclick="closeInfoBox('infoBox11')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox12" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you comfortable working in an onsite setting?</span><span class="close-btn" onclick="closeInfoBox('infoBox12')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox13" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you comfortable working in a remote setting?</span><span class="close-btn" onclick="closeInfoBox('infoBox13')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox14" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">We must fill this position urgently. Can you start immediately?</span><span class="close-btn" onclick="closeInfoBox('infoBox14')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox15" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Will you now or in the future require sponsorship for employment visa status?</span><span class="close-btn" onclick="closeInfoBox('infoBox15')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox16" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">Are you legally authorized to work in India?</span><span class="close-btn" onclick="closeInfoBox('infoBox16')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <h4>Ideal Answer:</h4>
+                <span>Yes</span>
+                <label style="float: right;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+            </div>
+            </div>
+    
+            <div id="infoBox17" class="infoBox">
+                <div class="skillheading"><span style="font-weight: bold;">How many years of [Job Function] experience do you currently have?</span><span class="close-btn" onclick="closeInfoBox('infoBox17')">X</span></div>
+                
+                
+                
+                <div class="skillbody">
+                    <div style="display: flex;">
+                    <div style="width: 33%;">
+                        <h4>Job Function</h4>
+                        <input type="text" class="expskill" placeholder="Job Function">
+                    </div>
+    
+                    <div style="width: 33%;" >
+                        <h4>Ideal Answer:</h4>
+                    <span><input type="number" min="0" max="99" step="1" id="numberInput" class="expskill"></span>
+                    </div>
+                    <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                    <label style="float: right; vertical-align: bottom;"><input type="checkbox" name="must_have_{{ qualification.id }}"> Must-have qualification</label>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+            {% endfor %}
+             -->
+            <a href="/dynamic_questions/">create questions</a>
+            {% for qualification in qualifications %}
+        <div id="infoBox{{ forloop.counter }}" class="infoBox">
+            <div class="skillheading">
+                <span style="font-weight: bold;">{{ qualification.question_text }}</span>
+                <span class="close-btn" onclick="closeInfoBox('infoBox{{ forloop.counter }}')">X</span>
+            </div>
+
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+                {% if qualification.answer_type == 'text' %}
+                    <input type="text" name="answer_{{ qualification.id }}" class="coreexp" placeholder="{{ qualification.ideal_answer }}">
+                {% elif qualification.answer_type == 'number' %}
+                    <input type="number" name="answer_{{ qualification.id }}" min="0" max="99" step="1" class="coreexp" value="{{ qualification.ideal_answer }}">
+                {% elif qualification.answer_type == 'dropdown' %}
+                    <select name="answer_{{ qualification.id }}" class="dropdown1">
+                        {% for option in qualification.dropdown_options|split:"," %}
+                            <option value="{{ option }}">{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                {% elif qualification.answer_type == 'boolean' %}
+                    <label><input type="radio" name="answer_{{ qualification.id }}" value="Yes"> Yes</label>
+                    <label><input type="radio" name="answer_{{ qualification.id }}" value="No"> No</label>
+                {% endif %}
+
+                <label style="float: right;">
+                    <input type="checkbox" class="must-have-checkbox" name="qualifications" id="qualification_{{ qualification.id }}" value="{{ qualification.id }}">
+                    <label class="form-check-label" for="qualification_{{ qualification.id }}">{{ qualification.name }}</label>
+                    
+                    <!-- Must-have checkbox -->
+                    <input type="checkbox" class="must-have-checkbox" name="must_have_{{ qualification.id }}" id="must_have_{{ qualification.id }}">
+                    <label class="form-check-label" for="must_have_{{ qualification.id }}">Must Have</label>
+                </label>
+                
+
+                <!-- <label style="float: right;">
+                    <input type="checkbox" name="must_have_{{ qualification.id }}" class="must-have-checkbox" data-qualification-id="{{ qualification.id }}" {% if qualification.must_have %}checked{% endif %}>
+                    Must-have qualification
+                </label> -->
+            </div>
+        </div>
+    {% endfor %}
+    {% for qualification in qualifications %}
+            <button class="button" data-box="infoBox{{ forloop.counter }}" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>{{ qualification.question_text }}</button>
+    {%endfor%}
+            <div class="ocp_box_heading">Qualification setting</div>
+            <input type="checkbox"><label class="qulificationsetting">Filter out and send rejections to applicants who don’t meet any must-have qualifications.</label>        
+                    </div>
+                    <div id="emailDescription" class="hidden" style="margin-top: 2.4rem;">
+                        <p><span style="font-weight: bold;">Receive applicants by email to use screening questions.</span> Screening questions can’t be collected from applicants when they apply on an external site. If you would like to collect answers to screening questions, please choose to receive applicants by email.</p>
+                    </div>
+                      <footer class="job-posting-footer ">
+                        <div class="mr2 ">
+                            
+                
+                    <button aria-label="Preview job post" id="editButtonSkills" class="artdeco-button artdeco-button--2 artdeco-button--tertiary ember-view mr2" type="button" fdprocessedid="fe2zfb"><!---->
+                <span class="artdeco-button__text">
+                    Preview
+                </span></button>
+                
+                    <div id="ember101" class="ember-view"><!----></div>
+                  
+                        </div>
+                        <div>
+                <!---->
+                          <div class="display-flex align-items-flex-end">
+                              <button id="ember102" class="job-posting-footer__secondary-cta artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--secondary ember-view" type="button" fdprocessedid="zhs2q"><!---->
+                <span class="artdeco-button__text">
+                    Back
+                </span></button>
+                
+                            <button id="ember103" class="artdeco-button artdeco-button--2 artdeco-button--primary ember-view" data-validate-submit-type="Next" type="submit" fdprocessedid="449e5n"><!---->
+                <span class="artdeco-button__text">
+                    Post
+                </span></button>
+                          </div>
+                        </div>
+                      </footer>
+                      
+    
+            
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    </div>
+    
+    </div>
+    <div class="rightside">
+        <div class="mobile_verification ocp_desktop " style="display: flex;">
+            <div class="draft-left" style="width: 30%;">ksdnbfjknfjkn</div>
+            <div class="display-sty">
+            <div id="displayJobTitle" ></div>
+            <div id="displayCompanyName" class="display-company">
+                <!-- Placeholder text or leave empty -->
+                <div id="companyNameText" class="companyname"></div>
+            </div>
+            <div class="selected-workplace display-company">
+                <label></label>
+                <div id="selectedWorkplace"></div>
+            </div>
+            <span id="display-area" class="display-company"></span>
+        </div>
+        </div>
+        
+    </div>
+    
+    <div id="skillsModal" class="modal">
+        <div class="lightbox profileEditDrawer resumeHeadlineEdit model_open">
+            <div class="modal-content">
+                <span class="close skillsClose">&times;</span>
+                <div class="s12 lbpadding">
+                    <div class="editHeader">
+                        <span class="mb5">Preview job post</span>
+                        <div class="lbl widgetDesc">
+                            This is a preview of what your job post will look like to job seekers, which includes details about your job such as company size and location, as well as information around when you created your LinkedIn profile. Candidates will answer screening questions when they apply.
+                        </div>
+                    </div>
+                
+                    <div class="rowprofile">
+                        
+                        
+                        <div class="sugComp">
+                            <div>
+                                <div class="suggest keySkillSuggCont">
+                                    <div class="sWrap">
+                                        
+                                        <div class="inpWrap">
+                                            <div id="jobTitleInModal" class="fontsty"></div>
+                                            <div class="dynamicchange">
+                                            <div id="displayCompanyName" class="display-company">
+                                                <!-- Placeholder text or leave empty -->
+                                                <span id="companyNameInModal"></span>
+                                            </div>
+                                            <span id="JoblocationInModal" class="display-company"></span>
+                                            <div id="workplaceInModal"></div>
+                                            <div id="jobTypeInModal" class="modal-jobtype-display"></div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rowedit">
+                            <div class="action s12">
+                                <a class="cancel-btn" href="javascript:void(0)" id="skillsCancelButton">Cancel</a>
+                                <button type="submit" name="keyskills_submit" class="btn-dark-ot">Save</button>
+                            </div>
+                        </div>
+                    
+    
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- Output area to display form data -->
+        <div id="output"></div>
+    
+    </form>
+        <script>
+            const selectField = document.getElementById('selectField');
+            const inputField = document.getElementById('inputField');
+            const extraFields = document.getElementById('extraFields');
+            const emailDescription = document.getElementById('emailDescription');
+        
+            function changePlaceholder() {
+                if (selectField.value === 'email') {
+                    inputField.placeholder = "example@example.com";
+                    inputField.type = "email"; // Set input type to email
+                    extraFields.classList.remove('hidden'); // Show additional fields
+                    emailDescription.classList.add('hidden'); // Hide email description
+                } else if (selectField.value === 'website') {
+                    inputField.placeholder = "http://yourcompany.com/job123";
+                    inputField.type = "url"; // Set input type to URL
+                    extraFields.classList.add('hidden'); // Hide additional fields
+                    emailDescription.classList.remove('hidden'); // Show website description
+                } else {
+                    inputField.placeholder = "Select an option above";
+                    inputField.type = "text";
+                    extraFields.classList.remove('hidden'); // Show additional fields
+                    emailDescription.classList.add('hidden'); // Hide email description
+                }
+            }
+        </script>
+    
+    <script>
+        // Function to initialize and display any previously clicked boxes based on local storage
+        function initializeBoxes() {
+            const clickedBoxes = JSON.parse(localStorage.getItem('clickedBoxes')) || [];
+    
+            clickedBoxes.forEach(boxId => {
+                const infoBox = document.getElementById(boxId);
+                const button = document.querySelector(`button[data-box="${boxId}"]`);
+                if (infoBox && button) {
+                    infoBox.style.display = 'block';
+                    button.style.filter = 'blur(3px)';
+                }
+            });
+        }
+    
+        // Get all buttons with the class "button"
+        const buttons = document.querySelectorAll('.button');
+    
+        // Add click event listener to each button
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const boxId = button.getAttribute('data-box');
+                const infoBox = document.getElementById(boxId);
+    
+                // Show the box and blur the button
+                infoBox.style.display = 'block';
+                button.style.filter = 'blur(3px)';
+    
+                // Save the clicked box to local storage
+                let clickedBoxes = JSON.parse(localStorage.getItem('clickedBoxes')) || [];
+                if (!clickedBoxes.includes(boxId)) {
+                    clickedBoxes.push(boxId);
+                    localStorage.setItem('clickedBoxes', JSON.stringify(clickedBoxes));
+                }
+            });
+        });
+    
+        // Function to close a specific info box and update local storage
+        function closeInfoBox(boxId) {
+            document.getElementById(boxId).style.display = 'none';
+            const button = document.querySelector(`button[data-box="${boxId}"]`);
+            if (button) button.style.filter = 'none';
+    
+            // Update local storage to remove the closed box
+            let clickedBoxes = JSON.parse(localStorage.getItem('clickedBoxes')) || [];
+            clickedBoxes = clickedBoxes.filter(id => id !== boxId);
+            localStorage.setItem('clickedBoxes', JSON.stringify(clickedBoxes));
+        }
+    
+        // Initialize the state of the boxes when the page loads
+        document.addEventListener('DOMContentLoaded', initializeBoxes);
+    </script>
+    
+    <script>
+        // Select all number input fields with the class 'numberInput'
+        const numberInputs = document.querySelectorAll('.numberInput');
+    
+        // Add event listener to each input field
+        numberInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                let value = parseInt(input.value, 10);
+    
+                // Check if the value is within the min-max range
+                if (value < 0) {
+                    input.value = 0;
+                } else if (value > 99) {
+                    input.value = 99;
+                }
+            });
+        });
+    </script>
+    
+    <script>
+        // JavaScript to toggle dropdown
+        const inputFieldcon = document.getElementById('inputFieldlang');
+        const dropdowncon = document.getElementById('dropdownlang');
+        const options = dropdowncon.querySelectorAll('.dropdown-option');
+    
+        inputFieldcon.addEventListener('click', () => {
+            dropdowncon.style.display = dropdowncon.style.display === 'none' || dropdowncon.style.display === '' ? 'block' : 'none';
+        });
+    
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                inputFieldcon.value = option.textContent; // Set input field to the selected option
+                dropdowncon.style.display = 'none'; // Hide dropdown
+            });
+        });
+    
+        // Hide dropdown if clicked outside
+        document.addEventListener('click', (event) => {
+            if (!inputFieldcon.contains(event.target) && !dropdowncon.contains(event.target)) {
+                dropdowncon.style.display = 'none';
+            }
+        });
+    </script>
+
+<script>
+    function showFormTwo() {
+        const formOneContainer = document.querySelector('#formOne');
+        
+        // Get required fields from formOne only
+        const requiredFields = formOneContainer.querySelectorAll('input[required]');
+        
+        let allFilled = true;
+        let emptyFields = [];  // Array to store names of empty fields
+
+        requiredFields.forEach(input => {
+            if (!input.value.trim()) {  // Check if the input is empty or just whitespace
+                allFilled = false;
+                emptyFields.push(input.placeholder || input.name);  // Store placeholder or name
+            }
+        });
+
+        if (allFilled) {
+            document.getElementById('formOne').style.display = 'none';
+            document.getElementById('formTwo').style.display = 'block';
+        } else {
+            // Show a detailed alert with the empty fields
+            alert('Please fill the following required fields in Form One before proceeding:\n' + emptyFields.join('\n'));
+        }
+    }
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js"></script>
+    <script>
+        const input = document.querySelector("#phone");
+        const iti = window.intlTelInput(input, {
+            separateDialCode: true, // This displays the country code beside the number
+            autoHideDialCode: false, // Always show the dial code
+            nationalMode: false, // Forces the full number (with dial code)
+            preferredCountries: ["in", "us", "gb"], // India (IN) is the first preferred country
+            initialCountry: "in", // Set India as the default country
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js", // For formatting and validation
+        });
+    
+        // When the user types, dynamically detect and change the country code
+        input.addEventListener('input', function () {
+            const number = input.value.trim();
+            const countryData = iti.getSelectedCountryData();
+            const fullNumber = iti.getNumber(); // E.164 format
+    
+            // Log the full number with country code
+            console.log("Full number with country code:", fullNumber);
+    
+            // Dynamically change the country if the number includes a country code
+            if (number.startsWith('+')) {
+                const countryCode = iti.getNumberType(number);
+                console.log("Detected country code:", countryCode);
+            }
+        });
+    
+        // To dynamically update the selected country when the number is changed
+        input.addEventListener('blur', function () {
+            const isValid = iti.isValidNumber();
+            if (isValid) {
+                console.log("Valid number entered:", iti.getNumber());
+            } else {
+                console.log("Invalid number entered.");
+            }
+        });
+    </script>
+
+<script>
+    const inputfield = document.querySelector("#phone");
+    const sendOtpButton = document.querySelector("#sendOtpButton");
+
+    // Initialize intl-tel-input for phone input
+    const itis = window.intlTelInput(inputfield, {
+        separateDialCode: true, // This displays the country code beside the number
+        autoHideDialCode: false, // Always show the dial code
+        nationalMode: false, // Forces the full number (with dial code)
+        preferredCountries: ["in", "us", "gb"], // India (IN) is the first preferred country
+        initialCountry: "in", // Set India as the default country
+        utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/utils.js", // For formatting and validation
+    });
+
+    // Enable or disable the OTP button based on number of digits
+    inputfield.addEventListener('input', function() {
+        // Remove all non-digit characters (like spaces, dashes, etc.)
+        const phoneNumber = inputfield.value.replace(/\D/g, '');
+
+        // Check if the phone number has 10 digits
+        if (phoneNumber.length === 10) {
+            sendOtpButton.classList.add('active'); // Change button style to active
+        } else {
+            sendOtpButton.classList.remove('active'); // Revert to non-active style
+        }
+    });
+</script>
+
+<script>
+    window.onload = function() {
+        // Get the job title from localStorage
+        var jobTitle = localStorage.getItem('jobTitle');
+        
+        // If a value exists, fill the input field and display it in the div
+        if (jobTitle) {
+            document.getElementById('jobtitle').value = jobTitle;
+            document.getElementById('displayJobTitle').textContent = jobTitle;
+        }
+    };
+
+    // Listen to input changes and update localStorage and display div
+    const jobTitleInput = document.getElementById('jobtitle');
+    jobTitleInput.addEventListener('input', function() {
+        const currentValue = jobTitleInput.value;
+        // Update localStorage
+        localStorage.setItem('jobTitle', currentValue);
+        // Update the display div
+        document.getElementById('displayJobTitle').textContent = currentValue;
+    });
+</script>
+
+<script>
+    // Ensure the dropdown is hidden initially
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownMenu = document.querySelector('.dropdown-menu');
+  dropdownMenu.style.display = 'none';
+
+  // Handle the item selection
+  document.querySelectorAll('.dropdown-menu li').forEach(item => {
+    item.addEventListener('click', function() {
+      const inputField = document.getElementById('workplace');
+      inputField.value = this.getAttribute('data-value');
+      // Hide the dropdown after a selection
+      dropdownMenu.style.display = 'none';
+    });
+  });
+
+  // Show dropdown on input hover
+  const dropdownContainer = document.querySelector('.dropdown-container');
+  dropdownContainer.addEventListener('mouseenter', function() {
+    dropdownMenu.style.display = 'block';
+  });
+
+  // Hide dropdown when mouse leaves the container
+  dropdownContainer.addEventListener('mouseleave', function() {
+    dropdownMenu.style.display = 'none';
+  });
+});
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+<script>
+    // Initialize Quill editor for the description field
+    const quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+
+// Sync Quill content to hidden description field on form submit
+document.querySelector('form').onsubmit = function() {
+    document.getElementById('hidden-description').value = quill.getText().trim();  // Get plain text without HTML tags
+    document.getElementById('hidden-skills').value = selectedSkills.join(',');  // Pass skills as comma-separated values
+};
+
+    // Skills selection script
+    const skills = ["JavaScript", "HTML", "CSS", "React", "Node.js", "Python", "Java"]; // Skills options
+    const selectedSkills = [];
+    const skillsInput = document.getElementById('skills-input');
+    const dropdown = document.getElementById('skills-dropdown');
+    const selectedSkillsContainer = document.getElementById('selected-skills');
+    
+    // Display suggestions in dropdown
+    skillsInput.addEventListener('input', function() {
+        const input = skillsInput.value.toLowerCase();
+        dropdown.innerHTML = '';
+        if (input) {
+            const filteredSkills = skills.filter(skill => skill.toLowerCase().includes(input) && !selectedSkills.includes(skill));
+            filteredSkills.forEach(skill => {
+                const li = document.createElement('li');
+                li.textContent = skill;
+                li.addEventListener('click', () => addSkill(skill));
+                dropdown.appendChild(li);
+            });
+            dropdown.style.display = filteredSkills.length ? 'block' : 'none';
+        } else {
+            dropdown.style.display = 'none';
+        }
+    });
+    
+    // Add skill to selected list
+    function addSkill(skill) {
+        if (!selectedSkills.includes(skill)) {
+            selectedSkills.push(skill);
+            displaySelectedSkills();
+        }
+        skillsInput.value = '';
+        dropdown.style.display = 'none';
+    }
+    
+    // Display selected skills with "X" button for removal
+    function displaySelectedSkills() {
+        selectedSkillsContainer.innerHTML = ''; // Clear existing skills
+        selectedSkills.forEach(skill => {
+            const span = document.createElement('span');
+            span.textContent = skill;
+            
+            // Add "X" button to remove skill
+            const removeBtn = document.createElement('span');
+            removeBtn.textContent = '×';
+            removeBtn.classList.add('remove-skill');
+            removeBtn.addEventListener('click', () => removeSkill(skill));
+            
+            span.appendChild(removeBtn);
+            selectedSkillsContainer.appendChild(span);
+        });
+    }
+    
+    // Remove skill from selected list
+    function removeSkill(skill) {
+        const index = selectedSkills.indexOf(skill);
+        if (index > -1) {
+            selectedSkills.splice(index, 1);
+            displaySelectedSkills();
+        }
+    }
+</script>    
+<script>
+    // Ensure the dropdown is hidden initially
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownmenuadd = document.querySelector('.dropdown-menuadd');
+  dropdownmenuadd.style.display = 'none';
+
+  // Handle the item selection
+  document.querySelectorAll('.dropdown-menuadd li').forEach(item => {
+    item.addEventListener('click', function() {
+      const identify = document.getElementById('identify');
+      identify.value = this.getAttribute('data-value');
+      // Hide the dropdown after a selection
+      dropdownmenuadd.style.display = 'none';
+    });
+  });
+
+  // Show dropdown on input hover
+  const dropdowncontaineradd = document.querySelector('.dropdown-containeradd');
+  dropdowncontaineradd.addEventListener('mouseenter', function() {
+    dropdownmenuadd.style.display = 'block';
+  });
+
+  // Hide dropdown when mouse leaves the container
+  dropdowncontaineradd.addEventListener('mouseleave', function() {
+    dropdownmenuadd.style.display = 'none';
+  });
+});
+
+</script>
+
+<!-- <script>
+    const jobTitleInput = document.getElementById('jobtitle');
+    const displayDiv = document.getElementById('displayJobTitle');
+
+    jobTitleInput.addEventListener('input', function() {
+        displayDiv.textContent = jobTitleInput.value;
+    });
+</script> -->
+
+<script>
+    function displayCompanyName() {
+        // Get the input field value
+        const companyName = document.getElementById("companyname").value;
+        
+        // Set the value to the div
+        document.getElementById("companyNameText").textContent = companyName;
+    }
+</script>
+
+<script>
+    // Toggle the dropdown menu display
+    function toggleDropdown() {
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+    }
+
+    // Update the div and input field with the selected option
+    function selectWorkplaceType(value) {
+        // Update the input field placeholder with the selected value
+        document.getElementById("workplace").value = value;
+
+        // Update the separate div with the selected value
+        document.getElementById("selectedWorkplace").textContent = value;
+
+        // Hide dropdown after selection
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+
+    // Close dropdown if clicked outside
+    document.addEventListener("click", function(event) {
+        const dropdownContainer = document.querySelector(".dropdown-container");
+        if (!dropdownContainer.contains(event.target)) {
+            document.getElementById("dropdownMenu").style.display = "none";
+        }
+    });
+</script>
+
+<script>
+    // Ensure the dropdown is hidden initially
+document.addEventListener('DOMContentLoaded', function() {
+  const dropdownMenujobtype = document.querySelector('.dropdown-menujobtype');
+  dropdownMenujobtype.style.display = 'none';
+
+  // Handle the item selection
+  document.querySelectorAll('.dropdown-menujobtype li').forEach(item => {
+    item.addEventListener('click', function() {
+      const jobtype = document.getElementById('jobtype');
+      jobtype.value = this.getAttribute('data-value');
+      // Hide the dropdown after a selection
+      dropdownMenujobtype.style.display = 'none';
+    });
+  });
+
+  // Show dropdown on input hover
+  const dropdownContainerjobtype = document.querySelector('.dropdown-containerjobtype');
+  dropdownContainerjobtype.addEventListener('mouseenter', function() {
+    dropdownMenujobtype.style.display = 'block';
+  });
+
+  // Hide dropdown when mouse leaves the container
+  dropdownContainerjobtype.addEventListener('mouseleave', function() {
+    dropdownMenujobtype.style.display = 'none';
+  });
+});
+
+</script>
+
+<script>
+    window.onload = function() {
+        // Get the job title from localStorage
+        var jobTitle = localStorage.getItem('jobTitle');
+        
+        // If a value exists, fill the input field and display it
+        if (jobTitle) {
+            document.getElementById('jobtitle').value = jobTitle;
+            document.getElementById('displayJobTitle').textContent = jobTitle ;
+        }
+
+        // Add an event listener to update job location in both modal and display-area outside the modal
+        document.getElementById("Joblocation").addEventListener("input", function() {
+            var joblocationName = this.value;
+
+            // Update both the display areas: outside and inside modal
+            document.getElementById("display-area").innerText = joblocationName;
+            document.getElementById("JoblocationInModal").innerText = joblocationName;
+        });
+    };
+
+    // Key Skills Modal behavior
+    var skillsModal = document.getElementById('skillsModal');
+    var skillsEditButton = document.getElementById('editButtonSkills');
+    var skillsClose = document.getElementsByClassName('skillsClose')[0];
+    var skillsCancelButton = document.getElementById('skillsCancelButton');
+    
+    var jobTitleInModal = document.getElementById('jobTitleInModal'); // Element to display job title in modal
+    var companyNameInModal = document.getElementById('companyNameInModal'); // Element to display company name in modal
+    var JoblocationInModal = document.getElementById('JoblocationInModal'); // Element to display job location in modal
+
+    // When the edit button is clicked, show the modal and display the job title, company name, and job location
+    skillsEditButton.onclick = function() {
+        var jobTitle = document.getElementById('jobtitle').value; // Get value from the job title input field
+        var companyName = document.getElementById('companyname').value; // Get value from the company name input field
+        var Joblocation = document.getElementById('Joblocation').value; // Get value from the job location input field
+        
+        jobTitleInModal.textContent = jobTitle ; // Set the job title in the modal
+        companyNameInModal.textContent = companyName + '.'; // Set the company name in the modal
+        JoblocationInModal.textContent = Joblocation; // Set the job location in the modal
+        
+        skillsModal.style.display = 'block'; // Show the modal
+        document.body.style.overflow = 'hidden'; // Prevent scrolling while modal is open
+    };
+
+    // Close the modal when the close button (X) is clicked
+    skillsClose.onclick = function() {
+        skillsModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
+
+    // Close the modal when the cancel button is clicked
+    skillsCancelButton.onclick = function() {
+        skillsModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    };
+
+    // --- Dropdown Integration ---
+
+    // Toggle the dropdown menu display for workplace type
+    function toggleDropdown() {
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+    }
+
+    // Update the div and input field with the selected option for workplace type
+    function selectWorkplaceType(value) {
+        // Update the input field with the selected value
+        document.getElementById("workplace").value = value;
+
+        // Update the separate div with the selected value
+        document.getElementById("selectedWorkplace").textContent = value;
+
+        // Update the modal's workplace value if modal is open
+        document.getElementById("workplaceInModal").textContent = value;
+
+        // Hide dropdown after selection
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+
+    // Toggle the dropdown menu display for job type
+    function toggleJobTypeDropdown() {
+        const dropdownMenu = document.getElementById("dropdownMenuJobtype");
+        dropdownMenu.style.display = dropdownMenu.style.display === "none" ? "block" : "none";
+    }
+
+    // Update the div and input field with the selected job type in modal and input
+    function selectJobType(value) {
+        // Update the input field with the selected value
+        document.getElementById("jobtype").value = value;
+
+        // Update the modal's div with the selected value
+        document.getElementById("jobTypeInModal").textContent = value;
+
+        // Hide the dropdown menu after selection
+        document.getElementById("dropdownMenuJobtype").style.display = "none";
+    }
+
+    // Close dropdown if clicked outside (Workplace Type)
+    document.addEventListener("click", function(event) {
+        const dropdownContainer = document.querySelector(".dropdown-container");
+        if (!dropdownContainer.contains(event.target)) {
+            document.getElementById("dropdownMenu").style.display = "none";
+        }
+    });
+
+    // Close dropdown if clicked outside (Job Type)
+    document.addEventListener("click", function(event) {
+        const dropdownContainer = document.querySelector(".dropdown-containerjobtype");
+        if (!dropdownContainer.contains(event.target)) {
+            document.getElementById("dropdownMenuJobtype").style.display = "none";
+        }
+    });
+</script>
+
+
+
+<!-- <script>
+    // Add an event listener to the input field
+    document.getElementById("Joblocation").addEventListener("input", function() {
+        // Get the value of the input field
+        var joblocationName = this.value;
+        
+        // Display the value in the <p> tag
+        document.getElementById("display-area").innerText =  joblocationName;
+    });
+</script> -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get all the "must-have" checkboxes
+        const checkboxes = document.querySelectorAll(".must-have-checkbox");
+
+        checkboxes.forEach((checkbox) => {
+            // Listen for change events on each checkbox
+            checkbox.addEventListener("change", function () {
+                const qualificationId = this.getAttribute("data-qualification-id");
+                const fields = document.getElementById(`fields_${qualificationId}`);
+                if (this.checked) {
+                    fields.style.display = "block"; // Show the fields
+                } else {
+                    fields.style.display = "none"; // Hide the fields
+                }
+            });
+        });
+    });
+</script>
+
+<!-- <script>
+    function updateApplyLink() {
+        const selectField = document.getElementById("selectField");
+        const inputField = document.getElementById("inputField");
+        const applyLink = document.getElementById("applyLink");
+
+        // Default href to the Django-generated job detail URL
+        let href = ;
+
+        if (selectField.value === "website" && inputField.value) {
+            // If "Website" is selected and the input field is not empty, use the input value as href
+            href = inputField.value;
+        }
+
+        applyLink.href = href;
+    }
+</script> -->
+
+
+{% endblock %}

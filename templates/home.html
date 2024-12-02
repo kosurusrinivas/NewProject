@@ -1,0 +1,795 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambisionbox</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+<body>
+    <img class="trp-img" height="550" style="pointer-events:none;position:absolute;top:0;left:0;height:550px;max-height:550px;z-index:1000;width:90vw;max-width:90vw" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAASwCAYAAADrIbPPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAABXxSURBVHgB7MCBAAAAAICg/akXqQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgduCQAAAAAEDQ/9d+MAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAX+3JAAH2y713AAAAAElFTkSuQmCC">
+    <div id="layoutHeaderWrapper">
+    <header id="ambisionbox-header" class="ab_header mobile greyDesktopTablet">
+        <div class="navbar">
+            <div class="left-container">
+                <a href="" class="logo">
+                    <img src="{% static 'images/logo.svg' %}" height="32" width="26.5" style="filter: unset"/>
+                    <p class="text" style="color: #040a1e;">AmbitionBox</p>
+                </a>
+            </div>
+            <div class="right-container">
+                <div class="nav-list-right">
+                     <div class="cont">
+                        <div id="contribute-button" class="list-item">
+                            <div class="prpl-btn-crv">
+                                <span class="plus">+</span>
+                                Contribute
+                            </div>
+                        </div>
+                     </div>
+                     <div class="list-item">
+                        <div title="Notifications" class="notification-menu">
+                            <img alt="notification" src="{% static 'images/bell-icon.svg' %}" width="18" height="22" class=""> 
+                            <span id="badge-count" class="badge" style="display:none;"></span></div>
+                     </div>
+                     <div class="list-item profileIcon">
+                        <a href="/employerlogin/" class="login-btn">
+                            Login
+                        </a>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <nav class="nav-bar-wrapper">
+            <ul class="nav-list-wrapper">
+                <li class="navItem navItem--link">
+                    <a href="" title="Home" class="navItemLink">
+                        Home
+                    </a>
+                </li>
+                <li class="navItem navItem--link">
+                    <a href="" title="Communities" class="navItemLink">
+                        Communities
+                    </a>
+                </li>
+                <li class="navItem">
+                    <span>Companies</span>
+                    <i class="icon-chevron-right"></i>
+                    <div class="subNavItem">
+                        <ul>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/FlatPink.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Companies" class="subNavListItem">
+                                            Companies
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Discover best places to work
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/CircleEqualTo.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Compare Companies" class="subNavListItem">
+                                            Compare Companies
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Compare &amp; find best workplace
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/photos.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Add Office Photos" class="subNavListItem router-link-exact-active router-link-active">
+                                            Add Office Photos
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Bring your workplace to life
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/benefits.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Add Company Benefits" class="subNavListItem">
+                                            Add Company Benefits
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Highlight your company's perks
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navItem">
+                    <span>Reviews</span>
+                    <i class="icon-chevron-right"></i>
+                    <div class="subNavItem">
+                        <ul>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/StarYellowBox.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Company reviews" class="subNavListItem">
+                                            Company reviews
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Read reviews for 6L+ companies
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/ChatMarkStar.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="/Writereview/" title="Write a review" class="subNavListItem">
+                                            Write a review
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Rate your former or current company
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navItem">
+                    <span>Salaries</span>
+                    <i class="icon-chevron-right"></i>
+                    <div class="subNavItem">
+                        <ul>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/MoneyNoteBlue.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Browse salaries" class="subNavListItem">
+                                            Browse salaries
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Discover salaries for 8L+ companies
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/CalculatorYellow.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Salary calculator" class="subNavListItem">
+                                            Salary calculator
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Calculate your take home salary
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/MoneyBag.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Are you paid fairly?" class="subNavListItem router-link-exact-active router-link-active">
+                                            Are you paid fairly?
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Check your market value
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/currencyRupee.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Share your salary" class="subNavListItem">
+                                            Share your salary
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Help other jobseekers
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navItem">
+                    <span>Interviews</span>
+                    <i class="icon-chevron-right"></i>
+                    <div class="subNavItem">
+                        <ul>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/DocImage.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Company interviews" class="subNavListItem">
+                                            Company interviews
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Read interviews for 90k+ companies
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/ConvocationHatPink.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Campus placements" class="subNavListItem">
+                                            Campus placements
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Interviews questions for 1K+ colleges
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="subNavWrap">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox subNavImgBox--hover">
+                                        <img src="{% static 'images/chatSymbol.svg' %}" height="20" width="20">
+                                    </div>
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="Share interview questions" class="subNavListItem router-link-exact-active router-link-active">
+                                            Share interview questions
+                                        </a>
+                                        <p class="subNavDescription">
+                                            Contribute your interview questions
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navItem navItem--link">
+                    <a href="" title="Jobs" class="navItemLink">
+                        Jobs
+                    </a>
+                </li>
+                <li class="navItem">
+                    <span>Awards</span> 
+                    <i class="icon-chevron-right"></i> 
+                    <!----> 
+                    <div>
+                        <div class="winner-chip">
+                            <img src="{% static 'images/pink_star.svg' %}" height="11" width="10" alt="pink star" loading="lazy" class="winner-chip__img"> 
+                            <div class="winner-chip__winnerBox">
+                                RATE NOW!
+                            <div class="winner-chip__animation_box_line1"></div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="subNavItem subNavItem--awards">
+                        <ul>
+                            <li class="subNavWrap subNavWrap--awards shine">
+                                <div class="subNavWrapper">
+                                    <div class="subNavImgBox">
+                                        <img src="{% static 'images/award_2025.svg' %}" height="48" width="48">
+                                    </div> 
+                                    <div class="nameDescWrapper">
+                                        <a href="" title="ABECA 2025" class="subNavListItem subNavListItem--awards">
+                                                ABECA 2025
+                                        <div>
+                                            <div class="winner-chip"><!----> 
+                                                <div class="winner-chip__winnerBox">
+                                                    RATE NOW!
+                                                    <div class="winner-chip__animation_box_line1"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         </a> 
+                                        <p class="subNavDescription subNavDescription--awards">
+                                            AmbitionBox Employee Choice Awards - 4th Edition
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                                <li class="subNavWrap subNavWrap--awards">
+                                    <div class="subNavWrapper">
+                                        <div class="subNavImgBox subNavImgBox--hover">
+                                            <img src="{% static 'images/award_2024.svg' %}" height="48" width="48">
+                                        </div> 
+                                        <div class="nameDescWrapper">
+                                            <a href="" title="ABECA 2024" class="subNavListItem subNavListItem--awards">
+                                                ABECA 2024
+                                            <div><!----></div>
+                                            </a> 
+                                            <p class="subNavDescription subNavDescription--awards">
+                                                AmbitionBox Employee Choice Awards - 3rd Edition
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="subNavWrap subNavWrap--awards">
+                                    <div class="subNavWrapper">
+                                        <div class="subNavImgBox subNavImgBox--hover">
+                                            <img src="{% static 'images/award_2022.svg' %}" height="48" width="48">
+                                        </div> 
+                                        <div class="nameDescWrapper">
+                                            <a href="" title="AmbitionBox Best Places to Work 2022" class="subNavListItem subNavListItem--awards">
+                                                AmbitionBox Best Places to Work 2022
+                                                <div><!----></div>
+                                            </a> 
+                                            <p class="subNavDescription subNavDescription--awards">
+                                                2nd Edition
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="subNavWrap subNavWrap--awards">
+                                    <div class="subNavWrapper">
+                                        <div class="subNavImgBox subNavImgBox--hover">
+                                            <img src="{% static 'images/award_2021.svg' %}" height="48" width="48">
+                                        </div> 
+                                        <div class="nameDescWrapper">
+                                            <a href="" title="AmbitionBox Best Places to Work 2021" class="subNavListItem subNavListItem--awards">
+                                                AmbitionBox Best Places to Work 2021
+                                                <div><!----></div>
+                                            </a> 
+                                            <p class="subNavDescription subNavDescription--awards">
+                                            1st Edition
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <a href="/employer/" rel="noopener" class="employerNav">For Employers</a>
+        </nav>
+        
+    </header>
+</div>
+    <div id="homepage" class="homepage-container pd-top pd-btm-4 layout-content pd-tp-99">
+        <div class="hero-section">
+            <div class="container">
+                <div class="hero-section__textSection">
+                    <div class="hero-section__personalizedTitle" style="display:none;"></div>
+                    <div class="hero-section__title">
+                        India's No. 1 platform <br>
+                        for
+    
+                        <span class="typewriter-text">
+                            <span>
+                                <span>company reviews</span>
+                                <span>salary insights</span>
+                                <span>interview advice</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="hero-section__searchbox">
+                        <div class="ab_typeahead4 homeTypeahead" >
+                            <!---->
+                            <!---->
+                            <div class="typeahead-wrapper3">
+                                <div class="wrapper-wthout-btn home-wrapper">
+                                    <div class="search-company component-search-company search-company-wth-btn home-search-bar">
+                                        <!---->
+                                        <img src="{% static 'images/search-icon.svg' %}" height="20" width="20" class="search-icon">
+                                        <div id="autosuggest" title="Enter a Company or Designation" class="ab-typeahead">
+                                            <div role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="autosuggest-ab-typeahead__results">
+                                                <input type="search" autocomplete="off" aria-autocomplete="list" aria-activedescendant="" aria-controls="autosuggest-ab-typeahead__results" name="companyName" id="homeTypeahead" maxLength="150" placeholder="Which company or designation? " value="" class="component-input dsply-inline">
+                                            </div>
+                                            <div id="autosuggest-ab-typeahead__results" class="ab-typeahead__menu">
+                                            <!---->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-without-btn home-dropdown">
+                                        <div class="wrapper-dropdown component-wrapper-dropdown" data-v-6a0700ed>
+                                            <div class="input-box component-input-box" data-v-6a0700ed>
+                                                <p data-v-6a0700ed>Reviews</p>
+                                                <i class="icon-chevron-right" data-v-6a0700ed></i>
+                                            </div>
+                                            <ul class="autocomplete-list" data-v-6a0700ed>
+                                                <li rel="CompanyReviews" class="active" data-v-6a0700ed>Reviews</li>
+                                                <li rel="CompanySalaries" data-v-6a0700ed>Salaries</li>
+                                                <li rel="InterviewQuestions" data-v-6a0700ed>Interview Questions</li>
+                                                <li rel="CompanyOverview" data-v-6a0700ed>About Company</li>
+                                                <li rel="CompanyBenefits" data-v-6a0700ed>Benefits</li>
+                                                <li rel="CompanyJobs" data-v-6a0700ed>Jobs</li>
+                                                <li rel="CompanyPhotos" data-v-6a0700ed>Office Photos</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-section__recently-viewed">
+                    <!---->
+                    <!---->
+                    <!---->
+                    <!---->
+                    </div>
+                </div>
+            </div>
+            <img src="{% static 'images/hero-image.png' %}" height="380" width="580" class="hero-section__illustration">
+        </div>
+        <div class="companies-section">
+            <div class="container">
+                <div class="companies-section__feed-widget">
+                    <div class="companies-section__feed-widget-content">
+                        <p class="companies-section__feed-widget-title">Anonymous career talk with real professionals
+        </p>
+                        <a href="javascript:void(0)" class="home-hover-button feed-conversation-btn">Join the conversation
+        </a>
+                    </div>
+                    <img src="{% static 'images/conversation.png' %}" class="companies-section__feed-widget-image">
+                    <div class="companies-section__feed-widget-overlay"></div>
+                </div>
+            </div> 
+            <div class="container companies-section__insight-section companies-section__dt">
+                <div class="companies-section__insight-item">
+                    <img src="{% static 'images/user.svg' %}" height="40" width="40" alt="user" class="companies-section__insight-image">
+                    <div class="companies-section__insight-data">
+                        <span class="companies-section__insight-title">1 Crore+</span>
+                        <p class="companies-section__insight-subtitle">Monthly Users
+    </p>
+                    </div>
+                </div>
+                <div class="companies-section__insight-item">
+                    <img src="{% static 'images/cash.svg' %}" height="40" width="40" alt="cash" class="companies-section__insight-image">
+                    <div class="companies-section__insight-data">
+                        <span class="companies-section__insight-title">2 Crore+</span>
+                        <p class="companies-section__insight-subtitle">Salary Contributions
+    </p>
+                    </div>
+                </div>
+                <div class="companies-section__insight-item">
+                    <img src="{% static 'images/review.svg' %}" height="40" width="40" alt="review" class="companies-section__insight-image">
+                    <div class="companies-section__insight-data">
+                        <span class="companies-section__insight-title">60 Lakh+</span>
+                        <p class="companies-section__insight-subtitle">Company Reviews
+    </p>
+                    </div>
+                </div>
+                <div class="companies-section__insight-item">
+                    <img src="{% static 'images/chat.svg' %}" height="40" width="40" alt="chat" class="companies-section__insight-image">
+                    <div class="companies-section__insight-data">
+                        <span class="companies-section__insight-title">5 Lakh+</span>
+                        <p class="companies-section__insight-subtitle">Interview Questions
+    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="companies-section__company-slider container">
+                                <p class="companies-section__company-title">Find companies that deserve you!</p>
+                                <div class="companies-section__company-cards container">
+                                    <div equal-height="true" class="contentSlider">
+                                        <div class="contentSlider__wrpr">
+                                            <div class="contentSlider__container" style="width:0px;height:100%;display:flex;gap:0px;">
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="{% static 'images/cc986017fec58583efc428d76df705a5129e330d.webp' %}" data-srcset="{% static 'images/cc986017fec58583efc428d76df705a5129e330d.webp' %}">
+                                                            <img src="{% static 'images/cc986017fec58583efc428d76df705a5129e330d.jpg' %}" data-src="{% static 'images/cc986017fec58583efc428d76df705a5129e330d.jpg' %}" height="200" width="328" alt="Google cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="{% static 'images/google.jpg' %}" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Google logo" height="56" width="56" class="lazy popular-company-card__logo loaded" src="{% static 'images/google.jpg' %}" data-was-processed="true">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Google
+				</p>
+                                                                <div title="Rating 4.42" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.4</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Internet
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="{% static 'images/bd0fa64e91662ca563827ef6847b2ad6e2397ff9.webp' %}" data-srcset="{% static 'images/bd0fa64e91662ca563827ef6847b2ad6e2397ff9.webp' %}">
+                                                            <img src="{% static 'images/bd0fa64e91662ca563827ef6847b2ad6e2397ff9.jpg' %}" data-src="{% static 'images/bd0fa64e91662ca563827ef6847b2ad6e2397ff9.jpg' %}" height="200" width="328" alt="Uber cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="{% static 'images/uber.jpg' %}" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Uber logo" height="56" width="56" class="lazy popular-company-card__logo loaded" src="{% static 'images/uber.jpg' %}" data-was-processed="true">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Uber
+				</p>
+                                                                <div title="Rating 4.24" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.2</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Internet
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="{% static 'images/11546bc92e90282c875585c7d88d88d939376723.webp' %}" data-srcset="{% static 'images/11546bc92e90282c875585c7d88d88d939376723.webp' %}">
+                                                            <img src="{% static 'images/11546bc92e90282c875585c7d88d88d939376723.jpg' %}" data-src="{% static 'images/11546bc92e90282c875585c7d88d88d939376723.jpg' %}" height="200" width="328" alt="Tata Motors cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="{% static 'images/tata-motors.jpg' %}" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Uber logo" height="56" width="56" class="lazy popular-company-card__logo loaded" src="{% static 'images/tata-motors.jpg' %}" data-was-processed="true">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Tata Motors
+				</p>
+                                                                <div title="Rating 4.2" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.2</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Automobile
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="{% static 'images/71336a8d6c7b51f1131731f272b50441e86a9c05.webp' %}" data-srcset="{% static 'images/71336a8d6c7b51f1131731f272b50441e86a9c05.webp' %}">
+                                                            <img src="{% static 'images/71336a8d6c7b51f1131731f272b50441e86a9c05.jpg' %}" data-src="{% static 'images/71336a8d6c7b51f1131731f272b50441e86a9c05.jpg' %}" height="200" width="328" alt="Dell cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="{% static 'images/dell.jpg' %}" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Uber logo" height="56" width="56" class="lazy popular-company-card__logo loaded" src="{% static 'images/dell.jpg' %}" data-was-processed="true">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Dell
+				</p>
+                                                                <div title="Rating 4.13" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.1</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Consumer Electronics &amp;Appliances
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8zNDYvcGhvdG9zL2Rpc3BsYXkvZmQ4YjRkZTA4MWJmZjcwZDIzNDZkNzBkNWI4NzgyYzQzZjJkZGVjNy5qcGc=.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8zNDYvcGhvdG9zL2Rpc3BsYXkvZmQ4YjRkZTA4MWJmZjcwZDIzNDZkNzBkNWI4NzgyYzQzZjJkZGVjNy5qcGc=.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_346/photos/display/fd8b4de081bff70d2346d70d5b8782c43f2ddec7.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_346/photos/display/fd8b4de081bff70d2346d70d5b8782c43f2ddec7.jpg" height="200" width="328" alt="Asian Paints cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/asianpaints.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Asian Paints logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Asian Paints
+				</p>
+                                                                <div title="Rating 4.06" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.1</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Chemicals
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8yOC9waG90b3MvZGlzcGxheS9mYzNjYWI4YmRkOGI0NDYyMzMwODYxNTc3OGRlM2Q4ZGY2NDM3MjRjLmpwZw==.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8yOC9waG90b3MvZGlzcGxheS9mYzNjYWI4YmRkOGI0NDYyMzMwODYxNTc3OGRlM2Q4ZGY2NDM3MjRjLmpwZw==.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_28/photos/display/fc3cab8bdd8b44623308615778de3d8df643724c.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_28/photos/display/fc3cab8bdd8b44623308615778de3d8df643724c.jpg" height="200" width="328" alt="Flipkart cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/flipkart-28.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Flipkart logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Flipkart
+				</p>
+                                                                <div title="Rating 4.02" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.0</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Internet
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8yNzMvcGhvdG9zL2Rpc3BsYXkvMWJmYmI2ZWFlZDY5MjA3MmYwMjFhY2Q0ZjlmNTM4NWU1YTVhZWEwMy5qcGc=.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8yNzMvcGhvdG9zL2Rpc3BsYXkvMWJmYmI2ZWFlZDY5MjA3MmYwMjFhY2Q0ZjlmNTM4NWU1YTVhZWEwMy5qcGc=.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_273/photos/display/1bfbb6eaed692072f021acd4f9f5385e5a5aea03.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_273/photos/display/1bfbb6eaed692072f021acd4f9f5385e5a5aea03.jpg" height="200" width="328" alt="Accenture cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/accenture.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Accenture logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Accenture
+				</p>
+                                                                <div title="Rating 3.99" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.0</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">IT Services &amp;Consulting
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8xNjQyNjQvcGhvdG9zL2Rpc3BsYXkvMDcxMTBhZTUxYTVkYzUxNmJjYTNkYjk1ZDg3MjAwMWU5OThlNGY3NS5qcGc=.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8xNjQyNjQvcGhvdG9zL2Rpc3BsYXkvMDcxMTBhZTUxYTVkYzUxNmJjYTNkYjk1ZDg3MjAwMWU5OThlNGY3NS5qcGc=.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_164264/photos/display/07110ae51a5dc516bca3db95d872001e998e4f75.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_164264/photos/display/07110ae51a5dc516bca3db95d872001e998e4f75.jpg" height="200" width="328" alt="Udaan cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/udaan.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Udaan logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Udaan
+				</p>
+                                                                <div title="Rating 3.95" class="rating rating-4">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">4.0</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV80NS9waG90b3MvZGlzcGxheS8zMDY0YjliNjBiMTU0OTdjMmRjOTljZDljMTM3NTIwYzZmMDQ5MjdlLmpwZw==.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV80NS9waG90b3MvZGlzcGxheS8zMDY0YjliNjBiMTU0OTdjMmRjOTljZDljMTM3NTIwYzZmMDQ5MjdlLmpwZw==.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_45/photos/display/3064b9b60b15497c2dc99cd9c137520c6f04927e.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_45/photos/display/3064b9b60b15497c2dc99cd9c137520c6f04927e.jpg" height="200" width="328" alt="Deloitte cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/deloitte-us-india.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Deloitte logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Deloitte
+				</p>
+                                                                <div title="Rating 3.89" class="rating rating-35">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">3.9</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Management Consulting
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8xNTQ2MDQvcGhvdG9zL2Rpc3BsYXkvOGVlMTBlMmYwNDZkOTYzZjQwNTQyMjJmMGJiNzY2OWU1YzMyMGM4Yy5qcGc=.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV8xNTQ2MDQvcGhvdG9zL2Rpc3BsYXkvOGVlMTBlMmYwNDZkOTYzZjQwNTQyMjJmMGJiNzY2OWU1YzMyMGM4Yy5qcGc=.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_154604/photos/display/8ee10e2f046d963f4054222f0bb7669e5c320c8c.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_154604/photos/display/8ee10e2f046d963f4054222f0bb7669e5c320c8c.jpg" height="200" width="328" alt="BlackBuck cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/blackbuck.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="BlackBuck logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">BlackBuck
+				</p>
+                                                                <div title="Rating 3.84" class="rating rating-35">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">3.8</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">Internet
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV85NS9waG90b3MvZGlzcGxheS9kOWFmYmUxOGUyZDAyNmNlOWY3MzQ4YjBmNWZiY2NhOWJmMDE1NjgyLmpwZw==.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV85NS9waG90b3MvZGlzcGxheS9kOWFmYmUxOGUyZDAyNmNlOWY3MzQ4YjBmNWZiY2NhOWJmMDE1NjgyLmpwZw==.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_95/photos/display/d9afbe18e2d026ce9f7348b0f5fbcca9bf015682.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_95/photos/display/d9afbe18e2d026ce9f7348b0f5fbcca9bf015682.jpg" height="200" width="328" alt="Capgemini cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/capgemini.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Capgemini logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Capgemini
+				</p>
+                                                                <div title="Rating 3.81" class="rating rating-35">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">3.8</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">IT Services &amp;Consulting
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="popular-company-card shadow-buffer contentSlider__slide" style="flex-shrink: 0; width: 380px;">
+                                                    <div class="popular-company-card__image-container">
+                                                        <picture>
+                                                            <source type="image/webp" srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV80MS9waG90b3MvZGlzcGxheS8zZDA1OGY4MmEwMjRhZjhlM2MwNWVmZmE5NTlhNWRkNzcyZDAwNzBiLmpwZw==.webp" data-srcset="https://static.ambitionbox.com/assets/v2/images/rs:fill:900:600/bG9jYWw6Ly8vY29tcGFueV80MS9waG90b3MvZGlzcGxheS8zZDA1OGY4MmEwMjRhZjhlM2MwNWVmZmE5NTlhNWRkNzcyZDAwNzBiLmpwZw==.webp">
+                                                            <img src="https://static.ambitionbox.com/alpha/company/photos/company_41/photos/display/3d058f82a024af8e3c05effa959a5dd772d0070b.jpg" data-src="https://static.ambitionbox.com/alpha/company/photos/company_41/photos/display/3d058f82a024af8e3c05effa959a5dd772d0070b.jpg" height="200" width="328" alt="Infosys cover image" class="popular-company-card__image">
+                                                        </picture>
+                                                    </div>
+                                                    <div class="popular-company-card__details">
+                                                        <img data-src="https://static.ambitionbox.com/alpha/company/photos/logos/infosys.jpg" onerror="this.onerror=null;this.src='https://static.ambitionbox.com/static/icons/company-placeholder.svg';" alt="Infosys logo" height="56" width="56" class="lazy popular-company-card__logo">
+                                                        <div class="popular-company-card__subdetails">
+                                                            <div class="popular-company-card__head">
+                                                                <p class="popular-company-card__name">Infosys
+				</p>
+                                                                <div title="Rating 3.78" class="rating rating-35">
+                                                                    <i class="icon icon-star"></i>
+                                                                    <span class="bold-list-header">3.8</span>
+                                                                </div>
+                                                            </div>
+                                                            <p class="popular-company-card__industry">IT Services &amp;Consulting
+			</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!---->
+                                            <!---->
+                                            <div data-clickable="right_slider" class="contentSlider__rightMover">
+                                                <i class="icon-chevron-right"></i>
+                                            </div>
+                                            <!---->
+                                        </div>
+                                        <!---->
+                                    </div>
+                                </div>
+                                <a href="" class="home-hover-button viewAllCompanies">View all companies
+				</a>
+                            </div>
+    </div>
+</body>
+</html>

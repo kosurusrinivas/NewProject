@@ -1,0 +1,41 @@
+{% extends 'templates/feedforemployer.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<h1>Create Dynamic Questions</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.question_text.label_tag }}
+            {{ form.question_text }}
+        </div>
+        <div>
+            {{ form.answer_type.label_tag }}
+            {{ form.answer_type }}
+        </div>
+        <div>
+            {{ form.dropdown_options.label_tag }}
+            {{ form.dropdown_options }}
+        </div>
+        <div>
+            {{ form.ideal_answer.label_tag }}
+            {{ form.ideal_answer }}
+        </div>
+        <button type="submit">Save Question</button>
+    </form>
+
+    <hr>
+
+    <h2>Existing Questions</h2>
+    {% for question in questions %}
+        <div class="question-item">
+            <p><strong>Question:</strong> {{ question.question_text }}</p>
+            <p><strong>Answer Type:</strong> {{ question.get_answer_type_display }}</p>
+            {% if question.answer_type == 'dropdown' %}
+                <p><strong>Dropdown Options:</strong> {{ question.dropdown_options }}</p>
+            {% endif %}
+            <p><strong>ideal_answer:</strong> {{ question.ideal_answer }}</p>
+        </div>
+    {% endfor %}
+{%endblock%}

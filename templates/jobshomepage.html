@@ -1,0 +1,82 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div class="jobdetailsflex">
+    <div class="jobdetailsleft">
+        <div class="jobheading">
+            More jobs for you
+        </div>
+        <div class="jobheading2">
+            Based on your profile, preferences, and activity like applies, searches, and saves
+        </div>
+        {%for job in jobs %}
+        <a class="jobdetailslink" href="{%url 'jobshomepage' job.id %}"><div class="jobs-details-div">
+            <div class="company-img"></div>
+            <div class="job-details">
+                <div class="job-title">{{ job.job_title }}</div>
+                <div class="job-company-name">{{ job.company_name }}</div>
+                <div>{{ job.job_location }} ({{ job.workplace }})</div>
+            </div>
+        </div></a>
+        {% endfor %}
+    </div>
+<div class="jobdetailsright">
+    <div class="hr-job-details">
+        <div class="job-company-name">{{ job.company_name|title }}</div>
+        <div class="job-title mt2">{{ job.job_title|title }}</div>
+        <div class="mt2 joblocation">{{ job.job_location|title }}</div>
+        <div class="mt2 jobtype"> {{ job.workplace|title }} {{job.job_type|title}}</div>
+        <div class="mt2 jobskill">Skill: {{job.skills|title}}</div>
+
+        
+        {% if job.additional_info and 'http' in job.additional_info %}
+    <a href="{{ job.additional_info }}">
+        <button class="applybutton" {% if user_applied %}disabled{% endif %}>
+            {% if user_applied %}
+                Already Applied
+            {% else %}
+                Apply
+            {% endif %}
+        </button>
+    </a>
+{% else %}
+<a href="{%url 'job_detail' job.id %}"><button class="applybutton" {% if user_applied %}disabled{% endif %}> 
+    {% if user_applied %}
+        Already Applied
+    {% else %}
+        Apply
+    {% endif %}
+</button></a>
+{% endif %}
+        <div class="hrdiv">
+            <div class="hrimage"></div>
+            <div class="hrdetails">
+            <div class="hrpara">Meet the hiring team</div>
+            <div class="s12">
+                <div class="hrpedetails">
+                    {{ signupfinish.Firstname|title }} {{ signupfinish.Lastname|title }}
+                </div>
+                <div class="subhdn">
+                    <div class="desg">
+                        <div class="hrdesignation">
+                            {{ signupfinish.Designation|title }}
+                        </div>
+                        <!-- <div class="typ-14Medium mt4">
+                            at {{ signupfinish.Companyname }}
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hrmessage"><button class="messagebtn">Message</button></div>
+        </div>
+        <div class="jobdescripsion">{{ job.description|linebreaks }}</div>
+        
+    </div>
+  
+</div>
+</div>
+
+
+{% endblock %}

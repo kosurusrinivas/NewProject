@@ -1,0 +1,211 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    transition: 0.3s all ease-in-out;
+   }
+   body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   background-color: #fff;
+   overflow-y: hidden;
+   }
+   .shadow-wrap{
+    border-radius: 5px;
+    padding: 25px;
+    background-color:#e9edff;
+   }
+   .form-wrap{
+    background-color: #fff;
+   padding: 70px;
+   }
+   .form-wrap *{
+    display: block;
+    width: 100%;
+   }
+   .form-wrap label{
+   margin-bottom: 5px;
+   font-size: 14px;
+   font-weight: 700;
+   line-height: 26px; 
+   }
+   .form-wrap input{
+   padding: 12px 20px;
+   border-radius: 5px;
+   border: 1px solid #DAE1F5;
+   background: #FFF; 
+   color: #545D7A; 
+   }
+
+   .form-wrap .submit{
+    border-radius: 5px;
+   background: rgb(0, 225, 255);
+   color: #FFF;
+   cursor: pointer;
+   text-align: center;
+   font-size: 16px;
+   padding: 12px 68px;
+   font-weight: 700;
+   border: 1px solid transparent;
+   margin-top: 30px;
+   line-height: 26px; 
+   width: 100%;
+   margin-bottom: 20px;
+   }
+   .form-wrap .submit:hover{
+    background-color: rgb(18, 147, 164);
+    color: white;
+    border-color: rgb(18, 147, 164);
+   
+   }
+   .heading{
+    margin-bottom: 5px;
+   }
+   .smallheading{
+    font-weight: lighter;
+    margin-bottom: 20px;
+    font-size: 1rem;
+   }
+
+   input, textarea {
+    border: solid 1px rgb(0, 195, 255);
+    border-radius: 5px;
+    padding: 10px 20px 10px 10px;
+    width: 100%;
+    box-sizing: border-box;
+    border-color: rgb(0, 195, 255)  ;
+  }
+  input:focus{
+    outline: solid 1px rgb(0, 195, 255);
+  }
+  
+  
+  input[type="submit"] {
+    cursor: pointer;
+  }
+  .hr-lines:before{
+    content:" ";
+    display: block;
+    height: 2px;
+    width: 175px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: silver;
+  }
+
+  .hr-lines{
+    position: relative;
+    max-width: 500px;
+  margin: 10px auto;
+  text-align: center;
+  color: silver;
+  }
+
+  .hr-lines:after{
+    content:" ";
+    height: 2px;
+    width: 175px;
+    background: silver;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+  .Googlebtn{
+    padding: 15px 40px 15px 40px;
+    border-radius: 30px;
+    color: rgb(0, 225, 255);
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px rgb(0, 225, 255) solid;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .Googlebtn:hover{
+    background-color: gainsboro;
+    color: rgb(0, 195, 255);
+    border: 1px rgb(0, 195, 255) solid;
+  }
+
+  .div1img{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .siblingbtns{
+    display: flex;
+    justify-content: center;
+  }
+  .officebtn{
+    padding: 15px 40px 15px 40px;
+    border-radius: 30px;
+    color: rgb(0, 225, 255);
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px rgb(0, 225, 255) solid;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .officebtn:hover{
+    background-color: gainsboro;
+    color: rgb(0, 195, 255);
+    border: 1px rgb(0, 195, 255) solid;
+  }
+
+  .para{
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(94, 107, 146);
+    background-color: rgb(243, 255, 244,1);
+    font-size: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .div1{
+    width: 40%;
+    float: left;
+    height: 100%;
+    overflow-y: hidden;
+  }
+  .div2{
+    width: 60%;
+    float: right;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  ul{
+    list-style: none;
+  }
+  .list{
+    width: 100%;
+    max-height: 100px;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+  }
+  .list-items{
+    padding: 10px 5px;
+  }
+  .list-items:hover{
+    background-color: #ddd;
+  }
+  

@@ -1,0 +1,81 @@
+{% extends 'templates/feedforemployer.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+
+<div id="wrapper" style="margin-top: 100px;">
+    <h2>Apply for {{ job.job_title }} at {{ job.company_name }}</h2>
+
+    <!-- Display validation errors or success/error messages -->
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if validation_errors %}
+        <ul class="error-list">
+            {% for error in validation_errors %}
+                <li class="error-message">{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <!-- Applicant's Details -->
+        <div>
+            <label for="applicant_name">Your Name:</label>
+            <input type="text" id="applicant_name" name="applicant_name" required>
+        </div>
+
+        <div>
+            <label for="applicant_email">Your Email:</label>
+            <input type="email" id="applicant_email" name="applicant_email" required>
+        </div>
+
+        <div>
+            <label for="applicant_resume">Upload Resume:</label>
+            <input type="file" id="applicant_resume" name="applicant_resume">
+        </div>
+
+        <!-- Must-Have Qualifications -->
+        {% if must_have_qualifications %}
+            <h3>Must-Have Qualifications</h3>
+            {% for qualification in must_have_qualifications %}
+                <div>
+                    <label>{{ qualification.qualification.question_text }}</label>
+
+                    <!-- Render input fields based on qualification type -->
+                    {% if qualification.qualification.answer_type == 'text' %}
+                        <input type="text" name="answer_{{ qualification.qualification.id }}" required>
+                    {% elif qualification.qualification.answer_type == 'number' %}
+                        <input type="number" name="answer_{{ qualification.qualification.id }}" required>
+                    {% elif qualification.qualification.answer_type == 'dropdown' %}
+                        <select name="answer_{{ qualification.qualification.id }}" required>
+                            {% for option in qualification.qualification.dropdown_options|split:"," %}
+                                <option value="{{ option }}">{{ option }}</option>
+                            {% endfor %}
+                        </select>
+                    {% elif qualification.qualification.answer_type == 'boolean' %}
+                        <label>
+                            <input type="radio" name="answer_{{ qualification.qualification.id }}" value="Yes" required> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="answer_{{ qualification.qualification.id }}" value="No" required> No
+                        </label>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Application</button>
+    </form>
+</div>
+
+{% endblock %}

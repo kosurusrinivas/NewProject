@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'otp.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+</head>
+<body>
+<div>
+    <div class="div1">
+        <img src="{% static 'images/snip.jpg' %}" alt="image">
+    </div>
+    <div class="div2">
+        <div class="shadow-wrap">
+        <div class="form-wrap">
+         <h3 class="heading">OTP VERIFICATION</h3>
+    <form method="POST">
+        
+        {% csrf_token %}
+        
+        <input type="text" class="input" placeholder="OTP" name="inputotp">
+        <button class="submit" type="submit" name="otpsubmit">Submit</button>
+        </form>
+
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+       
+       </div>
+       </div>
+       
+    </div>
+     
+
+    </div>
+    
+</body>
+</html>

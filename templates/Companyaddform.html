@@ -1,0 +1,186 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+
+
+{% if form.errors %}
+<div class="alert alert-danger">
+    {{ form.errors }}
+</div>
+{% endif %}
+<div>
+	{% if messages %}
+		{% for message in messages %}
+			<p style="color: black; text-align: center;">{{ message }}</p>
+		{% endfor %}
+	{% endif %}
+</div>
+<div class="container-company">
+	<header class="header">
+		<h1 id="title" class="text-center">Create a Scientific Page</h1>
+		<p id="description" class="text-center">
+			Let’s get started with a few details about your company.
+		</p>
+	</header>
+	
+	<form method="POST" enctype="multipart/form-data" id="survey-form">
+		{% csrf_token %}
+	<div class="form-wrap">	
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label id="name-label" for="name">Name *</label>
+						<input type="text" name="name" id="name" placeholder="Add your organization’s name" class="form-control" required>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="form-group">
+						<label id="email-label" for="link">Scientific.com/company/ *</label>
+						<input type="text" name="linkedin_url" id="email" placeholder="Add your unique Scientificiq address" class="form-control" required>
+					</div>
+					{% if form.errors %}
+					<div class="alert alert-danger">
+						<ul>
+							{% for field, errors in form.errors.items %}
+								<li>{{ field|capfirst }}: {{ errors|join:", " }}</li>
+							{% endfor %}
+						</ul>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+			
+			<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					
+						<label id="number-label" for="number">Website *</label>
+						<input type="text" name="website" id="number" class="form-control" placeholder="Begin with http://, https:// or www." >
+					</div>
+				</div>
+				<div class="col-md-6">
+				<div class="form-group">
+					
+						<label id="number-label" for="number">Industry *</label>
+						<input type="text" name="industry" id="number" class="form-control" placeholder="ex: Information Services." >
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-6">
+					<div class="form-group">
+						<label>Organization size *</label>
+						<select id="dropdown" name="organization_size" class="form-control" required>
+							<option disabled selected value>Select size</option>
+							<option value="0–1 employees">0–1 employees</option>
+							<option value="2–10 employees">2–10 employees</option>
+							<option value="11–50 employees">11–50 employees</option>
+							<option value="51–200 employees">51–200 employees</option>
+							<option value="201–500 employees">201–500 employees</option>
+							<option value="500+ employees">500+ employees</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-md-6">
+						<div class="form-group">
+						<label>Organization type *</label>
+						<select id="dropdown" name="organization_type" class="form-control" required>
+							<option value="Select type">Select type</option>
+							<option value="Public company">Public company</option>
+							<option value="Self-employed">Self-employed</option>
+							<option value="Government agency">Government agency</option>
+							<option value="Nonprofit">Nonprofit</option>
+							<option value="Sole proprietorship">Sole proprietorship</option>
+							<option value="Privately held">Privately held</option>
+							<option value="Partnership">Partnership</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Logo *</label>
+						<input type="file" id="fileInput" name="logo" class="form-control" style="padding-top: 10px;">
+						<!-- <input type="submit" value="Upload"> -->
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label>Tagline *</label>
+						<textarea  id="comments" class="form-control" name="tagline" placeholder="ex: An information services firm helping small businesses succeed."></textarea>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+					<button type="submit" id="submit" class="btn btn-primary btn-block">Create Page</button>
+				</div>
+			</div>
+
+		
+	</div>	
+</form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nameInput = document.getElementById('name');
+        const linkedinInput = document.getElementById('email');
+
+        nameInput.addEventListener('input', () => {
+            let nameValue = nameInput.value.trim().toLowerCase();
+            // Replace spaces and special characters with dashes for a URL-friendly format
+            nameValue = nameValue.replace(/[^a-z0-9]+/g, '-');
+            linkedinInput.value = nameValue ? `${nameValue}` : '';
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const nameInput = document.getElementById('name');
+        const linkedinInput = document.getElementById('email');
+        const errorMessage = document.createElement('p');
+        errorMessage.style.color = 'red';
+        errorMessage.style.marginTop = '5px';
+        linkedinInput.parentNode.appendChild(errorMessage);
+
+        nameInput.addEventListener('input', () => {
+            let nameValue = nameInput.value.trim().toLowerCase();
+            nameValue = nameValue.replace(/[^a-z0-9]+/g, '-'); // Format for URL
+            linkedinInput.value = nameValue ? `${nameValue}` : '';
+
+            if (linkedinInput.value) {
+                // Check database for URL uniqueness
+                fetch(`/validate-company-url/?url=${encodeURIComponent(linkedinInput.value)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.is_taken) {
+                            errorMessage.textContent = "This public URL is already in use. Edit the above name so it’s unique.";
+                            errorMessage.style.display = 'block';
+                        } else {
+                            errorMessage.style.display = 'none';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error validating URL:', error);
+                    });
+            } else {
+                errorMessage.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+{%endblock%}

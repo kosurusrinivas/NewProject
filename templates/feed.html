@@ -1,0 +1,92 @@
+{% load ambision_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'feed.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Document</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">
+            <a><img src="https://i0.wp.com/scientificiq.org/wp-content/uploads/2024/10/journals-publishing.png?fit=534%2C120&ssl=1" width="200" height="45"></a>
+            <input type="text" placeholder="Search"  class="searchfile">
+            <button class="searchbtn"><i class="fa fa-search"></i></button>
+        </div>
+        <div id="mainlistdiv" class="main_list">
+            <ul class="navlinks">
+                <li><a href="/tag/">Home</a></li>
+                <li><a href="#">Mynetwork</a></li>
+                <li><a href="/jobs/">Jobs</a></li>
+                <li><a>Messages</a></li>
+                <li><a href="/notifications/">Notifications</a></li>
+                <li><a href="/createcompany/">create</a></li>
+                
+                
+            </ul>
+            <div class="profile-sty">
+                <a href="/profile/"><img src="{% static 'images/profile img2.png' %}"  class="profileimg" ></a>
+            </div>
+        </div>
+        
+        <span class="navTrigger">
+            <i></i>
+            <i></i>
+            <i></i>
+        </span>
+    </nav>
+    <div id="loading-overlay">
+
+        <p class="loading-text"><img src="https://i0.wp.com/scientificiq.org/wp-content/uploads/2024/10/journals-publishing.png?fit=534%2C120&amp;ssl=1" width="200" height="45"></p>
+        <div class="loading-line"></div>
+    </div>
+
+
+    {% block content %}{% endblock %}
+
+    
+    <script src="{% static 'feed.css' %}"></script>
+   <script>
+        const loadingOverlay = document.getElementById('loading-overlay');
+
+function checkNetworkAndPageStatus() {
+    if (navigator.onLine && document.readyState === 'complete') {
+        loadingOverlay.style.display = 'none';
+    } else {
+        loadingOverlay.style.display = 'flex';
+    }
+}
+
+window.addEventListener('beforeunload', function () {
+    loadingOverlay.style.display = 'flex';
+});
+
+window.addEventListener('load', function () {
+    checkNetworkAndPageStatus();
+});
+
+window.addEventListener('online', checkNetworkAndPageStatus);
+window.addEventListener('offline', function () {
+    loadingOverlay.style.display = 'flex';
+});
+
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        checkNetworkAndPageStatus();
+    }
+});
+
+setInterval(checkNetworkAndPageStatus, 3000);
+
+
+    </script>
+
+
+</body>
+</html>

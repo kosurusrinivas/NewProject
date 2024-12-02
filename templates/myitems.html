@@ -1,0 +1,34 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div class="jobdetailsflex">
+<div class="jobdetailsleft">
+    <div class="jobs-leftside">My items</div>
+    <div class="jobs-leftside"><a href="/my-posted-jobs/">Posted jobs</a></div>
+    <div class="jobs-leftside"><a href="/applied-jobs/">My jobs</a></div>
+    <div class="jobs-leftside">My learing</div>
+    <div class="jobs-leftside">Service Request</div>
+    <div class="jobs-leftside">Saved post and artical</div>
+</div>
+    <div class="jobdetailsright"><h1>Posted Jobs</h1>
+        {% if posted_jobs %}
+            <ul>
+                {% for job in posted_jobs %}
+                    <li class="jobdetailslink" style="padding: 1rem; border-bottom: 1px solid gainsboro;">
+                        <a  href="{% url 'jobpostingdetail' job.id %}">
+                            <div class="job-title">{{ job.job_title }}</div>
+                            <div class="job-company-name">{{ job.company_name }}</div>
+                            <div>{{ job.job_location }} ({{ job.workplace }})</div>
+                        </a>
+                       
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't posted any jobs yet.</p>
+        {% endif %}</div>
+       
+</div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="{% static 'signup2.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+</head>
+<body>
+<div>
+    <div class="div1">
+        <img src="{% static 'images/snip.jpg' %}" alt="image">
+    </div>
+    <div class="div2">
+        <div class="shadow-wrap">
+        <div class="form-wrap">
+         <h3 class="heading">Sign up in 2- easy steps!</h3>
+         <p class="smallheading">Trusted by 17000+ brands and 1 Crore+ users per month</p>
+    <form method="POST">
+        
+        {% csrf_token %}
+        {{ formobj.as_p }}
+        <!-- <input type="text" id="input" placeholder="Designation"> -->
+
+        <ul class="list"></ul>
+        
+        
+        <button class="submit" type="submit">Submit</button>
+        <p class="hr-lines">Or</p>
+        <div class="siblingbtns">
+        <button class="Googlebtn"><img  class="div1img" src="{% static 'images/google svg.svg' %}" alt="Google Logo">Google</button>
+        <button class="officebtn"><img class="div1img" src="{% static 'images/office 365.png' %}" alt="Office 365 Logo">Office 365</button>
+    </div>
+        <p class="para"><img class="div1img" src="{% static 'images/security.png' %}" alt="securty Logo">Your data is 100% secure and private</p>
+    </form>
+       
+       </div>
+       </div></div>
+
+    </div>
+
+  <script src="{% static 'signup2.js' %}"></script>
+</body>
+</html>

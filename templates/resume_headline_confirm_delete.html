@@ -1,0 +1,6 @@
+<form method="POST">
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ headline.objective }}{{skill.keyskills}}"?</p>
+    <button type="submit">Yes, delete</button>
+    <a href="/profile/">Cancel</a>
+</form>

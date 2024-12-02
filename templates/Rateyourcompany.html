@@ -1,0 +1,431 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write a Review</title>
+    <link rel="stylesheet" href="{% static 'writereview.css' %}">
+    <style>
+        * { box-sizing: border-box; }
+
+.container {
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/concrete-texture.png");
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.rating {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: row-reverse;
+  position: relative;
+}
+
+.rating-0 {
+  filter: grayscale(100%);
+}
+
+.rating > input {
+  display: none;
+}
+
+.rating > label {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-top: auto;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23e3e3e3' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 76%;
+  transition: .3s;
+}
+
+.rating > input:checked ~ label,
+.rating > input:checked ~ label ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23fcd93a' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+
+.rating > input:not(:checked) ~ label:hover,
+.rating > input:not(:checked) ~ label:hover ~ label {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='126.729' height='126.73'%3e%3cpath fill='%23d8b11e' d='M121.215 44.212l-34.899-3.3c-2.2-.2-4.101-1.6-5-3.7l-12.5-30.3c-2-5-9.101-5-11.101 0l-12.4 30.3c-.8 2.1-2.8 3.5-5 3.7l-34.9 3.3c-5.2.5-7.3 7-3.4 10.5l26.3 23.1c1.7 1.5 2.4 3.7 1.9 5.9l-7.9 32.399c-1.2 5.101 4.3 9.3 8.9 6.601l29.1-17.101c1.9-1.1 4.2-1.1 6.1 0l29.101 17.101c4.6 2.699 10.1-1.4 8.899-6.601l-7.8-32.399c-.5-2.2.2-4.4 1.9-5.9l26.3-23.1c3.8-3.5 1.6-10-3.6-10.5z'/%3e%3c/svg%3e");
+}
+
+
+
+.feedback {
+  max-width: 360px;
+  background-color: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  box-shadow: 0 4px 30px rgba(0,0,0,.05);
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.rating { 
+  border: none;
+  float: left;
+  margin:0px 0px 0px 28px;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin-top: 2px;
+  padding:0px 5px 0px 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+	color: #fff; 
+	float: right;
+	border-radius:15px;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { 
+  cursor:pointer;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { 
+  cursor:pointer;
+} 
+
+
+    </style>
+</head>
+<body>
+    <div class="shadow-wrap">
+        <div class="form-wrap">
+         <h3>Write a Review</h3>
+       <form method="POST">
+        {% csrf_token %}
+        <label for="CompanyName">
+            CompanyName<span>*</span>
+        </label>
+        <input id="CompanyName" type="text" placeholder="CompanyName">
+        <span class="error-message"></span>
+        <label for="JobTitle">
+            JobTitle<span>*</span>
+        </label>
+        <div class="container">
+          <div class="feedback">
+            <div class="rating">
+              <input type="radio" name="rating" id="rating-5">
+              <label for="rating-5"></label>
+              <input type="radio" name="rating" id="rating-4">
+              <label for="rating-4"></label>
+              <input type="radio" name="rating" id="rating-3">
+              <label for="rating-3"></label>
+              <input type="radio" name="rating" id="rating-2">
+              <label for="rating-2"></label>
+              <input type="radio" name="rating" id="rating-1">
+              <label for="rating-1"></label>
+          
+            </div>
+          </div>
+        </div>
+       
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Work Life Balance <span>*</span></p>
+            <div class="container">
+            <div class="feedback">
+            <div class="rating">
+              <input type="radio" id="field1_star5" name="rating1" value="5" /><label class = "full" for="field1_star5"></label>
+              
+              <input type="radio" id="field1_star4" name="rating1" value="4" /><label class = "full" for="field1_star4"></label>
+              
+              <input type="radio" id="field1_star3" name="rating1" value="3" /><label class = "full" for="field1_star3"></label>
+              
+              <input type="radio" id="field1_star2" name="rating1" value="2" /><label class = "full" for="field1_star2"></label>
+              
+              <input type="radio" id="field1_star1" name="rating1" value="1" /><label class = "full" for="field1_star1"></label>
+              
+            </div>
+          </div>
+        </div>
+        </div>
+        
+
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Salary & Benefits <span>*</span></p>
+            
+            <div class="container">
+              <div class="feedback">
+              <div class="rating">
+                <input type="radio" id="field2_star5" name="rating2" value="5" /><label class = "full" for="field2_star5"></label>
+                
+                <input type="radio" id="field2_star4" name="rating2" value="4" /><label class = "full" for="field2_star4"></label>
+                
+                <input type="radio" id="field2_star3" name="rating2" value="3" /><label class = "full" for="field2_star3"></label>
+                
+                <input type="radio" id="field2_star2" name="rating2" value="2" /><label class = "full" for="field2_star2"></label>
+                
+                <input type="radio" id="field2_star1" name="rating2" value="1" /><label class = "full" for="field2_star1"></label>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Promostion <span>*</span></p>
+            
+            <div class="container">
+              <div class="feedback">
+              <div class="rating">
+                <input type="radio" id="field3_star5" name="rating3" value="5" /><label class = "full" for="field3_star5"></label>
+                
+                <input type="radio" id="field3_star4" name="rating3" value="4" /><label class = "full" for="field3_star4"></label>
+                
+                <input type="radio" id="field3_star3" name="rating3" value="3" /><label class = "full" for="field3_star3"></label>
+                
+                <input type="radio" id="field3_star2" name="rating3" value="2" /><label class = "full" for="field3_star2"></label>
+                
+                <input type="radio" id="field3_star1" name="rating3" value="1" /><label class = "full" for="field3_star1"></label>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+       
+
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Job Security <span>*</span></p>
+            
+            <div class="container">
+              <div class="feedback">
+              <div class="rating">
+                <input type="radio" id="field4_star5" name="rating4" value="5" /><label class = "full" for="field4_star5"></label>
+                
+                <input type="radio" id="field4_star4" name="rating4" value="4" /><label class = "full" for="field4_star4"></label>
+                
+                <input type="radio" id="field4_star3" name="rating4" value="3" /><label class = "full" for="field4_star3"></label>
+                
+                <input type="radio" id="field4_star2" name="rating4" value="2" /><label class = "full" for="field4_star2"></label>
+                
+                <input type="radio" id="field4_star1" name="rating4" value="1" /><label class = "full" for="field4_star1"></label>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Skill Development <span>*</span></p>
+            
+            <div class="container">
+              <div class="feedback">
+              <div class="rating">
+                <input type="radio" id="field5_star5" name="rating5" value="5" /><label class = "full" for="field5_star5"></label>
+                
+                <input type="radio" id="field5_star4" name="rating5" value="4" /><label class = "full" for="field5_star4"></label>
+                
+                <input type="radio" id="field5_star3" name="rating5" value="3" /><label class = "full" for="field5_star3"></label>
+                
+                <input type="radio" id="field5_star2" name="rating5" value="2" /><label class = "full" for="field5_star2"></label>
+                
+                <input type="radio" id="field5_star1" name="rating5" value="1" /><label class = "full" for="field5_star1"></label>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Work Satisfation <span>*</span></p>
+            
+            <div class="container">
+              <div class="feedback">
+              <div class="rating">
+                <input type="radio" id="field6_star5" name="rating6" value="5" /><label class = "full" for="field6_star5"></label>
+                
+                <input type="radio" id="field6_star4" name="rating6" value="4" /><label class = "full" for="field6_star4"></label>
+                
+                <input type="radio" id="field6_star3" name="rating6" value="3" /><label class = "full" for="field6_star3"></label>
+                
+                <input type="radio" id="field6_star2" name="rating6" value="2" /><label class = "full" for="field6_star2"></label>
+                
+                <input type="radio" id="field6_star1" name="rating6" value="1" /><label class = "full" for="field6_star1"></label>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+            <p class="body-large heading">Company Culture <span>*</span></p>
+            
+            <div class="container">
+              <div class="feedback">
+              <div class="rating">
+                <input type="radio" id="field7_star5" name="rating7" value="5" /><label class = "full" for="field7_star5"></label>
+                
+                <input type="radio" id="field7_star4" name="rating7" value="4" /><label class = "full" for="field7_star4"></label>
+                
+                <input type="radio" id="field7_star3" name="rating7" value="3" /><label class = "full" for="field7_star3"></label>
+                
+                <input type="radio" id="field7_star2" name="rating7" value="2" /><label class = "full" for="field7_star2"></label>
+                
+                <input type="radio" id="field7_star1" name="rating7" value="1" /><label class = "full" for="field7_star1"></label>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <label for="What do you like about working at your company?">
+            What do you like about working at your company?<span>*</span>
+        </label>
+        <input id="Likes" type="text" placeholder="Likes">
+        <span class="error-message"></span>
+
+        <label for="What do you dislike about working at your company?">
+            What do you dislike about working at your company?<span>*</span>
+        </label>
+        <input id="Likes" type="text" placeholder="disLikes">
+        <span class="error-message"></span>
+
+        <label for="What gender do you identify with?">
+            What gender do you identify with?<span>*</span>
+        </label>
+            <div class="plans">
+              <div class="title"></div>
+              <label class="plan basic-plan" for="basic">
+                <input checked type="radio" name="plan" id="basic" />
+                <div class="plan-content">
+                  <div class="plan-details">
+                    <span>Females</span>
+                  </div>
+                </div>
+              </label>
+          
+              <label class="plan complete-plan" for="complete">
+                <input type="radio" id="complete" name="plan" />
+                <div class="plan-content">
+                  <div class="plan-details">
+                    <span>Male</span>
+                  </div>
+                </div>
+              </label>
+
+              
+            </div>
+
+          
+
+
+            <label for="What is the work policy at your company?">
+                What is the work policy at your company?<span>*</span>
+            </label>
+                <div class="plans">
+                  <div class="title"></div>
+                  <label class="plan basic-plan" for="basic">
+                    <input checked type="radio" name="plan" id="basic" />
+                    <div class="plan-content">
+                      <div class="plan-details">
+                        <span>Permanent work from home</span>
+                      </div>
+                    </div>
+                  </label>
+              
+                  <label class="plan complete-plan" for="complete">
+                    <input type="radio" id="complete" name="plan" />
+                    <div class="plan-content">
+                      <div class="plan-details">
+                        <span>Working from office</span>
+                      </div>
+                    </div>
+                  </label>
+    
+                  <label class="plan basic-plan" for="basic">
+                    <input checked type="radio" name="plan" id="basic" />
+                    <div class="plan-content">
+                      <div class="plan-details">
+                        <span>Hybrid (working from office & home)</span>
+                      </div>
+                    </div>
+                  </label>
+              
+            
+                </div>
+
+                <label for="What is the work policy at your company?">
+                    Do you currently work here?<span>*</span>
+                </label>
+
+                <div class="plans">
+                    <label class="plan basic-plan" for="basic">
+                        <input checked type="radio" name="plan" id="basic" />
+                        <div class="plan-content">
+                          <div class="plan-details">
+                            <span>Yes</span>
+                          </div>
+                        </div>
+                      </label>
+                  
+                      <label class="plan complete-plan" for="complete">
+                        <input type="radio" id="complete" name="plan" />
+                        <div class="plan-content">
+                          <div class="plan-details">
+                            <span>No</span>
+                          </div>
+                        </div>
+                      </label>
+                    </div>
+        
+                    <div class="ab-rating-input rinput mg-top-24" id="workLifeRating">
+                        <p class="body-large heading">Select Employment type<span>*</span></p>
+                        
+                        <div class="flex-row">
+                            <select id="dropdown" name="dropdown">
+                                <option value="1">Full Time</option>
+                                <option value="2">Part Time</option>
+                                <option value="3">Contractual</option>
+                                <option value="4">Intern</option>
+                                <option value="5">Freelancer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="JobTitle">
+                        Department<span>*</span>
+                    </label>
+                    <input id="Department" type="text" placeholder="Department">
+                    <span class="error-message"></span>
+        
+       
+        
+        <button type="submit">Submit</button>
+       </form>
+       
+       </div>
+       </div>
+</body>
+</html>

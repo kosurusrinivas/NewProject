@@ -1,0 +1,565 @@
+{% extends 'templates/feedforemployer.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div style="display: flex; gap: 20px; align-items: flex-start;">
+<div class="leftside">
+    <!-- Buttons to Switch Between Forms -->
+     <div id="login-form-container">
+    <div class="homePageContainer">
+        <div class="wrapper-head" >
+            <div class="rightContainer">
+                <div id="toggleRCBLoginForm" class="right-cont-mobile fr_posting tabbing">
+     <div id="rcommerce_root">
+    
+
+    <div class="mobile_verification ocp_desktop" id="formTwoContainer">
+        <form id="formTwo">
+            <div class="ocp_common_heading">Applicant collection</div>
+            <div style="padding: 20px 24px 0;" >
+            <div class="fields">
+            <div class="field-left">
+                <label for="Job title" class="loginsty labelmargin" >Receive applicants</label>
+                <select id="selectField" class="userinputsty" onchange="changePlaceholder()">
+                    <option value="">Select an option</option>
+                    <option value="email">Email</option>
+                    <option value="website">Website</option>
+                </select>
+            </div>
+            <div class="field-right">
+                <label for="inputField" class="loginsty labelmargin" >Enter value</label>
+                <input type="text" id="inputField" class="userinputsty" placeholder="Select an option above">
+            </div>
+        </div>
+        <div id="extraFields" class="hidden">
+        <div class="ocp_box_heading">Screening questions</div>
+        
+            
+            
+       
+        <div id="infoBox1" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Have you completed the following level of education: Bachelor's Degree?</span><span class="close-btn" onclick="closeInfoBox('infoBox1')">X</span></div>
+            
+            
+            
+        <div class="skillbody">
+            <h4>Ideal Answer:</h4>
+        <span>Yes</span>
+        <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        
+        
+        
+        <div id="infoBox2" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">How many years of work experience do you have with Core?</span><span class="close-btn" onclick="closeInfoBox('infoBox2')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer (minimum):</h4>
+            <span><input type="number" min="0" max="99" step="1" id="numberInput" class="coreexp"></span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+            </div>
+        </div>
+
+        
+        
+        
+        <div id="infoBox3" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">How many years of work experience do you have with Programming?</span><span class="close-btn" onclick="closeInfoBox('infoBox3')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span><input type="number" min="0" max="99" step="1" id="numberInput" class="coreexp"></span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox4" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you willing to undergo a background check, in accordance with local law/regulations?</span><span class="close-btn" onclick="closeInfoBox('infoBox4')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox5" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Do you have a valid driver's license?</span><span class="close-btn" onclick="closeInfoBox('infoBox5')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox6" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you willing to take a drug test, in accordance with local law/regulations?</span><span class="close-btn" onclick="closeInfoBox('infoBox6')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+        <div id="infoBox7" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">How many years of work experience do you have with [Skill]?</span><span class="close-btn" onclick="closeInfoBox('infoBox7')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <div style="display: flex;">
+                <div style="width: 33%;">
+                    <h4>Skill</h4>
+                    <input type="text" class="expskill" placeholder="Skill">
+                </div>
+
+                <div style="width: 33%;" >
+                    <h4>Ideal Answer:</h4>
+                <span><input type="number" min="0" max="99" step="1" id="numberInput" class="expskill"></span>
+                </div>
+                <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                <label style="float: right; vertical-align: bottom;"><input type="checkbox"> Must-have qualification</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div id="infoBox8" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you comfortable working in a hybrid setting?</span><span class="close-btn" onclick="closeInfoBox('infoBox8')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox9" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">How many years of [Industry] experience do you currently have?</span><span class="close-btn" onclick="closeInfoBox('infoBox9')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <div style="display: flex;">
+                <div style="width: 33%;">
+                    <h4>Industry</h4>
+                    <input type="text" class="expskill" placeholder="Industry">
+                </div>
+
+                <div style="width: 33%;" >
+                    <h4>Ideal Answer:</h4>
+                <span><input type="number" min="0" max="99" step="1" id="numberInput" class="expskill"></span>
+                </div>
+                <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                <label style="float: right; vertical-align: bottom;"><input type="checkbox"> Must-have qualification</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="infoBox10" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">What is your level of proficiency in [Language]?</span><span class="close-btn" onclick="closeInfoBox('infoBox10')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <div style="display: flex;">
+                <div style="width: 33%;">
+                    <h4>Language</h4>
+                    <input type="text" class="expskill" placeholder="Language">
+                </div>
+
+                <div style="width: 33%;" >
+                    <h4>Ideal Answer:</h4>
+                <input type="text" id="inputFieldlang" class="expskill" placeholder="Click for options" readonly>
+                <div id="dropdownlang" class="dropdown">
+                    <div class="dropdown-option">None</div>
+                    <div class="dropdown-option">Conversational</div>
+                    <div class="dropdown-option">Professional</div>
+                    <div class="dropdown-option">Native or bilingual</div>
+                </div>
+                </div>
+                <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                <label style="float: right; vertical-align: bottom;"><input type="checkbox"> Must-have qualification</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div id="infoBox11" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you comfortable commuting to this job's location?</span><span class="close-btn" onclick="closeInfoBox('infoBox11')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox12" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you comfortable working in an onsite setting?</span><span class="close-btn" onclick="closeInfoBox('infoBox12')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox13" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you comfortable working in a remote setting?</span><span class="close-btn" onclick="closeInfoBox('infoBox13')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox14" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">We must fill this position urgently. Can you start immediately?</span><span class="close-btn" onclick="closeInfoBox('infoBox14')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox15" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Will you now or in the future require sponsorship for employment visa status?</span><span class="close-btn" onclick="closeInfoBox('infoBox15')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox16" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">Are you legally authorized to work in India?</span><span class="close-btn" onclick="closeInfoBox('infoBox16')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <h4>Ideal Answer:</h4>
+            <span>Yes</span>
+            <label style="float: right;"><input type="checkbox"> Must-have qualification</label>
+        </div>
+        </div>
+
+        <div id="infoBox17" class="infoBox">
+            <div class="skillheading"><span style="font-weight: bold;">How many years of [Job Function] experience do you currently have?</span><span class="close-btn" onclick="closeInfoBox('infoBox17')">X</span></div>
+            
+            
+            
+            <div class="skillbody">
+                <div style="display: flex;">
+                <div style="width: 33%;">
+                    <h4>Job Function</h4>
+                    <input type="text" class="expskill" placeholder="Job Function">
+                </div>
+
+                <div style="width: 33%;" >
+                    <h4>Ideal Answer:</h4>
+                <span><input type="number" min="0" max="99" step="1" id="numberInput" class="expskill"></span>
+                </div>
+                <div style="width: 33%; display: flex; align-items: flex-end; justify-content: flex-end;">
+                <label style="float: right; vertical-align: bottom;"><input type="checkbox"> Must-have qualification</label>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        
+        <button class="button" data-box="infoBox1" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Education</button>
+        <button class="button" data-box="infoBox2" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Experience</button>
+        <button class="button" data-box="infoBox3" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Programming Experience</button>
+        <button class="button" data-box="infoBox4" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Background Check</button>
+        <button class="button" data-box="infoBox5" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Driver's License</button>
+        <button class="button" data-box="infoBox6" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Drug Test</button>
+        <button class="button" data-box="infoBox7" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Expertise with Skill</button>
+        <button class="button" data-box="infoBox8" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Hybrid Work</button>
+        <button class="button" data-box="infoBox9" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Industry Experience</button>
+        <button class="button" data-box="infoBox10" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Language</button>
+        <button class="button" data-box="infoBox11" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Location</button>
+        <button class="button" data-box="infoBox12" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Onsite Work</button>
+        <button class="button" data-box="infoBox13" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Remote Work</button>
+        <button class="button" data-box="infoBox14" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Urgent Hiring Need</button>
+        <button class="button" data-box="infoBox15" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Visa Status</button>
+        <button class="button" data-box="infoBox16" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Work Authorization</button>
+        <button class="button" data-box="infoBox17" type="button"><span style="font-size: 16px; padding-right: 10px;">+</span>Work Experience</button>
+        <div class="ocp_box_heading">Qualification setting</div>
+        <input type="checkbox"><label class="qulificationsetting">Filter out and send rejections to applicants who don’t meet any must-have qualifications.</label>        
+                </div>
+                <div id="emailDescription" class="hidden" style="margin-top: 2.4rem;">
+                    <p><span style="font-weight: bold;">Receive applicants by email to use screening questions.</span> Screening questions can’t be collected from applicants when they apply on an external site. If you would like to collect answers to screening questions, please choose to receive applicants by email.</p>
+                </div>
+                  <footer class="job-posting-footer ">
+                    <div class="mr2 ">
+                        
+            
+                <button aria-label="Preview job post" id="editButtonSkills" class="artdeco-button artdeco-button--2 artdeco-button--tertiary ember-view mr2" type="button" fdprocessedid="fe2zfb"><!---->
+            <span class="artdeco-button__text">
+                Preview
+            </span></button>
+            
+                <div id="ember101" class="ember-view"><!----></div>
+              
+                    </div>
+                    <div>
+            <!---->
+                      <div class="display-flex align-items-flex-end">
+                          <button id="ember102" class="job-posting-footer__secondary-cta artdeco-button artdeco-button--muted artdeco-button--2 artdeco-button--secondary ember-view" type="button" fdprocessedid="zhs2q"><!---->
+            <span class="artdeco-button__text">
+                Back
+            </span></button>
+            
+                        <button id="ember103" class="artdeco-button artdeco-button--2 artdeco-button--primary ember-view" data-validate-submit-type="Next" type="submit" fdprocessedid="449e5n"><!---->
+            <span class="artdeco-button__text">
+                Post
+            </span></button>
+                      </div>
+                    </div>
+                  </footer>
+                  
+
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="rightside">
+    <div class="mobile_verification ocp_desktop " style="display: flex;">
+        <div class="draft-left" style="width: 30%;">ksdnbfjknfjkn</div>
+        <div class="display-sty">
+        <div id="displayJobTitle" ></div>
+        <div id="displayCompanyName" class="display-company">
+            <!-- Placeholder text or leave empty -->
+            <div id="companyNameText" class="companyname"></div>
+        </div>
+        <div class="selected-workplace display-company">
+            <label></label>
+            <div id="selectedWorkplace"></div>
+        </div>
+        <span id="display-area" class="display-company"></span>
+    </div>
+    </div>
+    
+</div>
+
+<div id="skillsModal" class="modal">
+    <div class="lightbox profileEditDrawer resumeHeadlineEdit model_open">
+        <div class="modal-content">
+            <span class="close skillsClose">&times;</span>
+            <div class="s12 lbpadding">
+                <div class="editHeader">
+                    <span class="mb5">Preview job post</span>
+                    <div class="lbl widgetDesc">
+                        This is a preview of what your job post will look like to job seekers, which includes details about your job such as company size and location, as well as information around when you created your LinkedIn profile. Candidates will answer screening questions when they apply.
+                    </div>
+                </div>
+            
+                <div class="rowprofile">
+                    
+                    
+                    <div class="sugComp">
+                        <div>
+                            <div class="suggest keySkillSuggCont">
+                                <div class="sWrap">
+                                    
+                                    <div class="inpWrap">
+                                        <div id="jobTitleInModal" class="fontsty"></div>
+                                        <div class="dynamicchange">
+                                        <div id="displayCompanyName" class="display-company">
+                                            <!-- Placeholder text or leave empty -->
+                                            <span id="companyNameInModal"></span>
+                                        </div>
+                                        <span id="JoblocationInModal" class="display-company"></span>
+                                        <div id="workplaceInModal"></div>
+                                        <div id="jobTypeInModal" class="modal-jobtype-display"></div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rowedit">
+                        <div class="action s12">
+                            <a class="cancel-btn" href="javascript:void(0)" id="skillsCancelButton">Cancel</a>
+                            <button type="submit" name="keyskills_submit" class="btn-dark-ot">Save</button>
+                        </div>
+                    </div>
+                
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Output area to display form data -->
+    <div id="output"></div>
+
+    <script>
+        const selectField = document.getElementById('selectField');
+        const inputField = document.getElementById('inputField');
+        const extraFields = document.getElementById('extraFields');
+        const emailDescription = document.getElementById('emailDescription');
+    
+        function changePlaceholder() {
+            if (selectField.value === 'email') {
+                inputField.placeholder = "example@example.com";
+                inputField.type = "email"; // Set input type to email
+                extraFields.classList.remove('hidden'); // Show additional fields
+                emailDescription.classList.add('hidden'); // Hide email description
+            } else if (selectField.value === 'website') {
+                inputField.placeholder = "http://yourcompany.com/job123";
+                inputField.type = "url"; // Set input type to URL
+                extraFields.classList.add('hidden'); // Hide additional fields
+                emailDescription.classList.remove('hidden'); // Show website description
+            } else {
+                inputField.placeholder = "Select an option above";
+                inputField.type = "text";
+                extraFields.classList.remove('hidden'); // Show additional fields
+                emailDescription.classList.add('hidden'); // Hide email description
+            }
+        }
+    </script>
+
+<script>
+    // Function to initialize and display any previously clicked boxes based on local storage
+    function initializeBoxes() {
+        const clickedBoxes = JSON.parse(localStorage.getItem('clickedBoxes')) || [];
+
+        clickedBoxes.forEach(boxId => {
+            const infoBox = document.getElementById(boxId);
+            const button = document.querySelector(`button[data-box="${boxId}"]`);
+            if (infoBox && button) {
+                infoBox.style.display = 'block';
+                button.style.filter = 'blur(3px)';
+            }
+        });
+    }
+
+    // Get all buttons with the class "button"
+    const buttons = document.querySelectorAll('.button');
+
+    // Add click event listener to each button
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const boxId = button.getAttribute('data-box');
+            const infoBox = document.getElementById(boxId);
+
+            // Show the box and blur the button
+            infoBox.style.display = 'block';
+            button.style.filter = 'blur(3px)';
+
+            // Save the clicked box to local storage
+            let clickedBoxes = JSON.parse(localStorage.getItem('clickedBoxes')) || [];
+            if (!clickedBoxes.includes(boxId)) {
+                clickedBoxes.push(boxId);
+                localStorage.setItem('clickedBoxes', JSON.stringify(clickedBoxes));
+            }
+        });
+    });
+
+    // Function to close a specific info box and update local storage
+    function closeInfoBox(boxId) {
+        document.getElementById(boxId).style.display = 'none';
+        const button = document.querySelector(`button[data-box="${boxId}"]`);
+        if (button) button.style.filter = 'none';
+
+        // Update local storage to remove the closed box
+        let clickedBoxes = JSON.parse(localStorage.getItem('clickedBoxes')) || [];
+        clickedBoxes = clickedBoxes.filter(id => id !== boxId);
+        localStorage.setItem('clickedBoxes', JSON.stringify(clickedBoxes));
+    }
+
+    // Initialize the state of the boxes when the page loads
+    document.addEventListener('DOMContentLoaded', initializeBoxes);
+</script>
+
+<script>
+    // Select all number input fields with the class 'numberInput'
+    const numberInputs = document.querySelectorAll('.numberInput');
+
+    // Add event listener to each input field
+    numberInputs.forEach(input => {
+        input.addEventListener('input', () => {
+            let value = parseInt(input.value, 10);
+
+            // Check if the value is within the min-max range
+            if (value < 0) {
+                input.value = 0;
+            } else if (value > 99) {
+                input.value = 99;
+            }
+        });
+    });
+</script>
+
+<script>
+    // JavaScript to toggle dropdown
+    const inputFieldcon = document.getElementById('inputFieldlang');
+    const dropdowncon = document.getElementById('dropdownlang');
+    const options = dropdowncon.querySelectorAll('.dropdown-option');
+
+    inputFieldcon.addEventListener('click', () => {
+        dropdowncon.style.display = dropdowncon.style.display === 'none' || dropdowncon.style.display === '' ? 'block' : 'none';
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            inputFieldcon.value = option.textContent; // Set input field to the selected option
+            dropdowncon.style.display = 'none'; // Hide dropdown
+        });
+    });
+
+    // Hide dropdown if clicked outside
+    document.addEventListener('click', (event) => {
+        if (!inputFieldcon.contains(event.target) && !dropdowncon.contains(event.target)) {
+            dropdowncon.style.display = 'none';
+        }
+    });
+</script>
+
+ 
+
+{% endblock %}

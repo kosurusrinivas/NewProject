@@ -1,0 +1,135 @@
+{% extends 'templates/feedforemployer.html' %}
+{% load static %}
+{% load custom_filters %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div class="jobdetailshead">
+<h1>{{ job_posting.job_title }} at {{ job_posting.company_name }}</h1>
+<p><strong>Location:</strong> {{ job_posting.job_location }}</p>
+<p><strong>Type:</strong> {{ job_posting.job_type }}</p>
+<!-- <p><strong>Description:</strong> {{ job_posting.description|linebreaks }}</p> -->
+<p><strong>Skills:</strong> {{ job_posting.skills }}</p>
+</div>
+<div style="display: flex;">
+    <div>
+       
+        <ul>
+            {% for application in applications %}
+            <a href="{%url 'job_posting_detail' job_posting.id application.user %}">
+                <li>
+                    <p><strong>Applicant Name:</strong> {{ application.applicant_name }}</p>
+                    <p><strong>Email:</strong> {{ application.applicant_email }}</p>
+                    <p>{{application.user}}</p>
+                    
+                </li>
+            </a>
+            {% endfor %}
+        </ul>
+    
+    </div>
+
+    <!-- <div>
+        {% for detail in application_details %}
+            {% if detail.signupfinish %}
+                <a href="{% url 'posteduser' detail.user.username %}">
+                    <div>
+                        <div class="s12">
+                            <div class="hdn">
+                                {{ detail.signupfinish.Firstname }} {{ detail.signupfinish.Lastname }}
+                            </div>
+                            <div class="subhdn">
+                                <div class="desg typ-16Bold">
+                                    <div>
+                                        {{ detail.signupfinish.Designation }}
+                                    </div>
+                                    <div class="typ-14Medium mt4">
+                                        at {{ detail.signupfinish.Companyname }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% else %}
+                <p>No profile information available for {{ detail.user.username }}</p>
+            {% endif %}
+        {% endfor %}
+    </div> -->
+    <!-- <div>
+        <h2>Applications</h2>
+{% if applications %}
+    <ul>
+        {% for application in applications %}
+            <li>
+                <p><strong>Applicant Name:</strong> {{ application.applicant_name }}</p>
+                <p><strong>Email:</strong> {{ application.applicant_email }}</p>
+                <p>{{application.user}}</p>
+                {% if application.applicant_resume %}
+                    <p><a href="{{ application.applicant_resume.url }}" download>Download Resume</a></p>
+                    <iframe src="{{ application.applicant_resume.url }}" width="400px" height="400px"></iframe>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Employment History </h2>
+    {% if employment_data %}
+                            {% for employment in employment_data %}
+                                <div class="employement_sty">
+                                    <div class="item title typ-14Bold">
+                                        
+                                         <div class="form_submision_project">
+                                            <span class="truncate emp-desg" title="{{ employment.current_job }}">{{ employment.current_job }}</span>
+                                        </div>
+                                        <div class="form_edit_button">
+                                            
+                                        </div>
+                                        </div>
+                                    <div class="item">
+                                    
+                                        <span class="truncate typ-14Medium emp-org" title="{{ employment.current_company }}">{{ employment.current_company }}</span>
+                                    </div>
+                                    <div class="item experienceType typ-14Regular">
+                                    
+                                    <span class="truncate expType">{{ employment.employment_type|title }}</span>
+                                    <span class="ver-line"></span>
+                                    <span class="truncate">{% if employment.years_of_Joining and employment.months_of_Joining %}
+                                        {{employment.months_of_Joining}}{{ employment.years_of_Joining}} 
+                                        to 
+                                        {% if employment.current_employment == 'yes' %}
+                                            Present ({{ employment.total_years }} years {{ employment.total_months }} months)
+                                        {% else %}
+                                            (Duration: {{ employment.years_of_experience }} years {{ employment.months_of_experience }} months)
+                                        {% endif %}
+                                    {% endif %}</span>
+                                </div>
+                        
+                                    
+                                    <div class="item emp-notice-prd typ-14Medium">{{ employment.Notice_period }} Notice Period</div>
+                                    
+                                    <div class="item prefill emp-desc typ-14Medium">
+                                       
+                                        <div>{{ employment.Job_prfile }}</div>
+                                    </div>
+                                    
+                                    <div class="keyskillList item typ-14Medium">
+                                        
+                                        <span class="keySkillHeading">Top 5 key skills:</span>
+                                        <span class="txt-col-n6">{{ employment.skill_used }}</span>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        {% for detail in application_details %}
+                        <a href="{% url 'posteduser' detail.user.username %}">
+                            View Application Details for {{ detail.user.username }}
+                        </a>
+                        {%endfor%}
+{% else %}
+    <p>No applications yet.</p>
+{% endif %}
+    </div> -->
+</div>
+
+
+{% endblock %}

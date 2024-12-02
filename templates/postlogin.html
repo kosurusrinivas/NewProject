@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'templates/feed.html' %}
+{% block content %}
+    <div id="div2">
+        
+        <form method="post" enctype="multipart/form-data" class="styleform">
+            <p class="h2heading">Post form</p>
+            {{ form.as_p }}
+            {% csrf_token %}
+           <!-- <input type="file"><br/>-->
+           <label>
+            <input type="radio" name="post_type" value="account" required> Post to My Account
+        </label><br>
+        
+        {% if company_page %}
+        <label>
+            <input type="radio" name="post_type" value="company"> Post to {{ company_page.name }}
+        </label><br>
+        {% endif %}
+        
+
+    
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+           <div>
+            <button type="submit" id="b1" class="submit">Submit</button>
+            <a href="/tag/"><button type="button" class="submit">Back</button></a>
+            </div>
+        </form>
+    </div>
+{% endblock %}

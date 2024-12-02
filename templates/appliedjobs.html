@@ -1,0 +1,51 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div class="jobdetailsflex">
+<div class="jobdetailsleft">
+    <div class="jobs-leftside">My items</div>
+    <div class="jobs-leftside"><a href="/my-posted-jobs/">Posted jobs</a></div>
+    <div class="jobs-leftside">My jobs</div>
+    <div class="jobs-leftside">My learing</div>
+    <div class="jobs-leftside">Service Request</div>
+    <div class="jobs-leftside">Saved post and artical</div>
+</div>
+    <!-- <div class="jobdetailsright"><h1>Posted Jobs</h1>
+        {% if posted_jobs %}
+            <ul>
+                {% for job in posted_jobs %}
+                    <li class="jobdetailslink" style="padding: 1rem;">
+                        <a  href="{% url 'job_posting_detail' job.id %}">{{ job.job_title }}</a>
+                        at {{ job.company_name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You haven't posted any jobs yet.</p>
+        {% endif %}</div> -->
+        <div class="jobdetailsright">
+            <h1>My jobs</h1>
+    {% if applications %}
+        <ul>
+            {% for application in applications %}
+                <li class="jobdetailslink" style="padding: 1rem; border-bottom:1px solid gainsboro;">
+                    <a  href="{% url 'job_posting_detail' application.job.id user.username %}">
+                        <div class="job-details">
+                            <div class="job-title">{{ application.job.job_title }}</div>
+                            <div class="job-company-name">{{ application.job.company_name }}</div>
+                            <div>{{ application.job.job_location }} ({{ application.job.workplace }})</div>
+                        </div>
+                    </a>
+                    
+                    <!-- <p><strong>Application Date:</strong> {{ application.created_at }}</p>  -->
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't applied for any jobs yet.</p>
+    {% endif %}
+        </div>
+</div>
+
+{% endblock %}

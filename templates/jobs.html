@@ -1,0 +1,40 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<div id="wrapper ov" style="margin-top: 100px;"></div>
+<div>
+<div class="jobs-main-div">
+<div class="jobs-left-side">
+    <div class="jobs-leftside"><a href="/my-posted-jobs/">My jobs</a></div>
+    <div class="jobs-leftside">preferences</div>
+    <div class="jobs-leftside">Skill assessments</div>
+    <div class="jobs-leftside">My Career insights</div>
+    <div class="jobs-leftside">Interview Prep</div>
+    <div class="jobs-leftside">Job seeker guidance</div>
+</div>
+<div class="jobs-middle-side">
+    <div class="jobheading">
+        More jobs for you
+    </div>
+    <div class="jobheading2">
+        Based on your profile, preferences, and activity like applies, searches, and saves
+    </div>
+    {%for job in jobs %}
+    <a class="jobdetailslink" href="{%url 'jobshomepage' job.id %}"><div class="jobs-details-div">
+        <div class="company-img"></div>
+        <div class="job-details">
+            <div class="job-title">{{ job.job_title }}</div>
+            <div class="job-company-name">{{ job.company_name }}</div>
+            <div>{{ job.job_location }} ({{ job.workplace }})</div>
+        </div>
+    </div></a>
+    {% endfor %}
+</div>
+<div class="jobs-right-side">
+    <div>Job seeker guidance</div>
+    <div>Recommended based on your activity</div>
+</div>
+</div>
+</div>
+
+{% endblock %}

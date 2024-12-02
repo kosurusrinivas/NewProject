@@ -1,0 +1,19 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block content %}
+<h1 class="notification">Your Notifications</h1>
+
+<ul>
+    {% for user_notifications in user_notifications %}
+        <li>
+            <p>{{ user_notifications.message }}</p>
+            <small>{{ user_notifications.created_at|date:"Y-m-d H:i:s" }}</small>
+        </li>
+    {% empty %}
+        <li>No new notifications</li>
+    {% endfor %}
+</ul>
+
+
+
+{% endblock %}

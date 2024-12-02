@@ -1,0 +1,1108 @@
+.header-container {
+    display: block;
+    min-height: 66px;
+}
+
+body * {
+    padding: 0;
+    margin: 0;
+    font-family: Roboto, Arial;
+    font-size: 100%;
+}
+
+body {
+    color: #535252;
+}
+
+.header{
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    line-height: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(9, 50, 131, .2);
+    height: 36px;
+    padding: 20px 0;
+    font-family: Nunito;
+    font-size: 14px;
+    font-weight: 600;
+    color: #191b1f;
+
+}
+
+.covid-header-wrapper {
+    background-color: #063467;
+    height: 62px;
+    top: 0;
+    background-size: 100% 100%;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+.wrapper {
+    margin: auto;
+    width: 991px;
+}
+
+.homePgLogo {
+    width: 200px;
+    height: 120px;
+    background: url(	https://scientificiq.org/wp-content/uploads/2024/10/journals-publishing.png) no-repeat;
+    background-size: contain;
+    margin-top: 2px;
+    max-width: 100%;
+}
+
+.fl {
+    float: left;
+}
+
+.nav {
+    line-height: 30px;
+    font-size: 14px;
+    margin-top: unset !important;
+    margin-left: 5px !important;
+}
+
+.nav>li {
+    margin: 0 0 0 24px !important;
+    display: inline-block;
+    display: -ms-inline-flexbox;
+}
+.addTo {
+    padding-bottom: 27px;
+}
+
+.ddMenu {
+    position: relative;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0 0 2px;
+}
+
+.header-home {
+    color: #414b5d;
+    font-family: Nunito !important;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: left;
+    cursor: pointer;
+}
+.dspF {
+    display: flex;
+}
+
+.ulTxt {
+    font-size: 14px;
+    line-height: 20px;
+    color: #414b5d;
+    font-weight: 600;
+    font-family: Nunito;
+}
+.cartDownArrow {
+    background: url(../i/dropdwon_grey.png);
+    background-size: 100% 100%;
+    height: 5px;
+    width: 9px;
+    margin-top: 7px;
+    margin-left: 13px;
+}
+
+.loginInState {
+    float: right;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-top: 3px;
+}
+
+.cart {
+    width: 94px;
+    height: 40px;
+    float: right;
+    font-size: 14px;
+    cursor: pointer;
+    padding-top: 5px !important;
+    padding: 1%;
+    text-align: left;
+    overflow: visible !important;
+}
+
+#cart-heading {
+    text-align: center;
+    width: 90%;
+    font-weight: 700;
+    line-height: 18px;
+    font-size: 13px;
+    padding: 1%;
+    justify-content: right;
+}
+
+.cart-icon {
+    background: url(../i/cart_grey.png);
+    background-size: 100%;
+    height: 20px;
+    width: 20px;
+}
+.cart-label {
+    font-size: 14px;
+    line-height: 20px;
+    text-align: left;
+    color: #414b5d;
+    font-weight: 600;
+    font-family: Nunito;
+}
+
+.cartDownArrow {
+    background: url(../i/dropdwon_grey.png);
+    background-size: 100% 100%;
+    height: 5px;
+    width: 9px;
+    margin-top: 7px;
+    margin-left: 13px;
+}
+
+.call-us {
+    cursor: pointer;
+    padding: 0 2px 15px 15px;
+    text-align: left;
+    height: 35px;
+    position: relative;
+}
+
+.fr {
+    float: right;
+}
+.call-us-heading {
+    text-align: center;
+    color: #7c8ba2;
+    font-size: 10px;
+}
+.call-number {
+    padding-left: 10px;
+    color: #414b5d;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 324px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.jobSeekerLink {
+    color: #2870c1;
+    cursor: pointer;
+    font-family: Nunito;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.form-container {
+    display: none;
+}
+.form-container.active {
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.dZdHu{
+    box-sizing: border-box;
+    display: flex;
+}
+
+
+#toggleRCBLoginForm {
+    margin: 5px 0px 20px;
+    border: 1px solid #EFF0F3;
+    border-radius: 12px;
+}
+#toggleForm {
+    border-bottom: 1px solid #CDD3DB;
+    overflow: hidden;
+}
+
+.boxSel {
+    float: left;
+    padding: 20px 7px 16px 7px;
+    text-align: center;
+    outline: 0;
+    color: #aaa;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    cursor: pointer;
+    width: 50%;
+    box-sizing: border-box;
+
+}
+
+.right-cont {
+    padding: unset;
+    padding-bottom: 20px;
+    overflow: unset;
+    background: #fff;
+    width: 377px;
+}
+.right-cont-mobile{
+    padding: unset;
+    overflow: unset;
+    background: #fff;
+}
+li{
+    list-style-type: none;
+}
+.boxSel.active {
+    outline: 0;
+    border-bottom: 2px solid #007EE6;
+    color: #0C0D10;
+    font-weight: 700;
+}
+
+/* Inactive state for the form switcher buttons */
+
+.LvI27 {
+    justify-content: space-between;
+    width: 991px;
+
+}
+.loginsty{
+    color: #3b4252;
+    display: block;
+    font-family: Manrope, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin-bottom: 8px;
+
+}
+.userinputsty{
+    background: #fff;
+    border: 1px solid #ced2db;
+    border-radius: 8px;
+    color: #020c1e;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 0;
+    padding: 12px;
+    width: 90%;
+}
+.mobileinput{
+    background: #fff;
+    border: 1px solid #ced2db;
+    border-radius: 8px;
+    color: #020c1e;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    margin-top: 0;
+    padding: 12px;
+    width: 100%;
+}
+
+#formTwoContainer{
+    color: #666;
+    font-size: 13px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+}
+
+.submit_button_1  {
+    align-items: center;
+    background: #007ee6;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    height: 44px;
+    justify-content: center;
+    line-height: 19px;
+    margin-top: 24px;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: white;
+    border: 0;
+}
+.sentotp_button{
+    align-items: center;
+    background: #eff0f3;
+    cursor: not-allowed;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    height: 44px;
+    justify-content: center;
+    line-height: 19px;
+    margin-top: 24px;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: #adb3c3;
+    border: 0;
+}
+.sentotp_button.active{
+    align-items: center;
+    background: #007ee6;
+    border-radius: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    height: 44px;
+    justify-content: center;
+    line-height: 19px;
+    margin-top: 24px;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+    color: white;
+    border: 0;
+}
+
+.createsub{
+    color: #8c95ac;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 12px 0;
+    text-align: center;
+}
+
+.underline_matter{
+    align-items: center;
+    display: flex;
+}
+.underline{
+    border-top: 1px solid #adb3c3;
+    flex: 1 1;
+}
+.matter{
+    align-items: center;
+    color: #3b4252;
+    display: flex;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 400;
+    justify-content: center;
+    line-height: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ulJ2H {
+    background: hsla(0, 0%, 100%, .7);
+    border: 1px solid #007ee6;
+    border-radius: 8px;
+    box-shadow: none;
+    color: #007ee6;
+    font-family: Manrope, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px;
+    margin-bottom: 12px;
+    margin-top: 12px;
+    padding: 12px;
+    width: 100%;
+}
+
+#formOneContainer{
+    color: #666;
+    font-size: 13px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 24px;
+}
+
+.loginonesty{
+    color: #191b1f;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 8px;
+}
+.nameclass{
+    border: none;
+    border-bottom: 1px solid #ced3da;
+    outline: none;
+    padding: 6px 0;
+    width: 100%;
+}
+.contact{
+    margin-bottom: 18px;
+    }
+
+.dropdown-container {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+    }
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+    
+.dropdown-menu li {
+padding: 10px;
+cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+background-color: #f0f0f0;
+}
+
+.dropdown-container:hover .dropdown-menu {
+display: block;
+}
+
+.enqurybutton{
+    background-color: #226ec4;
+    border: 1px solid #226ec4;
+    box-shadow: 0 2px 6px -2px rgba(0, 106, 194, .2);
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    transition: all .2s linear;
+    width: 100%;
+    font-weight: 600;   
+}
+
+
+
+.ocp_common_heading{
+    font-size: 22px;
+    line-height: 32px;
+    padding-right: 24px;
+    padding-left: 24px;
+    color: #0c0d10;
+    font-weight: 700;
+
+}
+
+.ocp_desktop {
+    background-color: #fff;
+    border: 1px;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px 0 rgba(11, 13, 18, .039);
+    box-sizing: border-box;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    /* padding: 24px 0 40px; */
+    width: 100%;
+}
+
+#phoneInputContainer {
+    display: flex;
+    align-items: center;
+}
+.countryCode {
+    margin-right: 10px;
+    min-width: 80px;
+}
+
+/* .fr_posting{
+    float: left;
+} */
+
+.field-left{
+    width:calc(50% - 5px);
+}
+
+.field-right{
+    width: calc(50% - 5px);
+}
+.fields{
+    display: flex;
+    justify-content: space-between;
+}
+
+.labelmargin{
+    margin: 1.2rem 0 0.3rem;
+}
+.dropdown{
+    background-color: white;
+}
+
+.ocp_common_descripsion{
+    font-size: 22px;
+    line-height: 32px;
+    padding-right: 24px;
+    color: #0c0d10;
+    font-weight: 700;
+}
+
+body {
+    font-family: 'Calibri', sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.toolbar {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);}
+
+button, select {
+    margin-right: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#editor {
+    height: 400px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+#editor h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#editor p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.dropdown {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    background: #fff;
+    width: 200px;
+}
+.dropdown li {
+    padding: 8px;
+    cursor: pointer;
+}
+.dropdown li:hover {
+    background-color: #f0f0f0;
+}
+#selected-skills span {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px;
+    margin: 3px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#selected-skills span {
+    position: relative;
+    padding-right: 20px;
+}
+#selected-skills span .remove-skill {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+
+
+.dropdownadd {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    width: 92%;
+    z-index: 1000;
+    margin: 0;
+}
+.dropdownadd li {
+    padding: 10px;
+    cursor: pointer;
+}
+.dropdownadd li:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown-menuadd {
+    display: none;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    }
+    
+.dropdown-menuadd li {
+padding: 10px;
+cursor: pointer;
+}
+
+.dropdown-menuadd li:hover {
+background-color: #f0f0f0;
+}
+
+.dropdown-container:hover .dropdown-menuadd {
+display: block;
+}
+
+.job-posting-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1.6rem 2.4rem;
+}
+
+.mr2 {
+    margin-right: .8rem !important;
+}
+.artdeco-button--tertiary {
+    border-radius: 0.4rem !important;
+    padding-left: .8rem !important;
+    padding-right: .8rem !important;
+}
+.display-flex {
+    display: flex !important;
+}
+
+.align-items-flex-end {
+    align-items: flex-end !important;
+}
+
+.artdeco-button{
+    color: skyblue;
+    background-color: white;
+    border: none;
+}
+.artdeco-button:hover{
+    color: white;
+    background-color: skyblue;
+}
+.dropdown-containeradd{
+    margin-bottom: 2.4rem;
+}
+.leftside{
+    width: 70%;
+}
+.rightside{
+    width: 30%;
+    float: right;
+    margin-top: 5px;
+}
+.display-sty {
+    padding: 0.8rem;
+    font-weight: bold;
+    width: 70%;
+}
+
+.draft-left{
+    padding: 0.8rem;
+}
+.display-company{
+    
+    font-weight: normal !important;
+    font-size: 0.9rem;
+    max-width: 50%;
+    margin-right: 10px;
+}
+.companyname{
+
+    width: 80%;
+}
+/* Apply perspective to the parent to create a 3D effect */
+.modal {
+    perspective: 1000px; /* Adds depth to the 3D flip */
+  }
+  
+  /* Flip open animation (X-axis with perspective) */
+  .flipOpen {
+    animation: flipOpenAnimation 0.6s ease forwards;
+    transform-origin: top; /* Origin for the flip is at the top of the modal */
+  }
+  
+  @keyframes flipOpenAnimation {
+    0% {
+      transform: rotateX(90deg); /* Start rotated along the X-axis */
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0deg); /* End at normal view */
+      opacity: 1;
+    }
+  }
+  
+  /* Flip close animation (X-axis with perspective) */
+  .flipClose {
+    animation: flipCloseAnimation 0.6s ease forwards;
+    transform-origin: top; /* Origin for the flip is at the top of the modal */
+  }
+  
+  @keyframes flipCloseAnimation {
+    0% {
+      transform: rotateX(0deg); /* Start at normal view */
+      opacity: 1;
+    }
+    100% {
+      transform: rotateX(90deg); /* Rotate along the X-axis */
+      opacity: 0;
+    }
+  }
+  
+  /* Ensure the modal has transform-style for 3D effect */
+  .modal-content {
+    transform-style: preserve-3d;
+  }
+
+   /* The modal's container */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.801); /* Black background with opacity */
+    }
+    
+      /* Modal content */
+    .modal-content {
+    position: absolute;
+    background-color: white;
+    z-index: 1014;
+    margin: 15% auto;
+    padding: 60px 50px 40px;
+    border: 1px solid #888;
+    /* text-align: center; */
+    width: 738px;
+    height: auto;
+    left: 262.5px;
+    border-radius: 20px;
+    overflow-y: auto;
+    }
+
+    .close {
+        position: absolute;
+        right: 20px;
+        top: 18px;
+        box-shadow: none;
+        z-index: 9999;
+        font-size: 30px;
+        color: #717b9e;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+    }
+
+    .editHeader {
+        color: #121224;
+        margin-bottom: 30px;
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 26px;
+    }
+
+    .lbl {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+    }
+
+    .skillsTxt {
+        resize: none;
+        min-height: 2.5rem;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 18px;
+        width: 638px;
+        overflow-y: auto;
+        color: #121224;
+        padding: 12px 15px;
+        border: 1px solid #979ec2;
+        border-radius: 16px;
+        box-sizing: border-box;
+        margin-bottom: 0;
+    }
+
+    .s12 {
+        width: 100%;
+        left: auto;
+        right: auto;
+    }
+
+    .action {
+        text-align: right;
+        margin: 0 auto;
+    }
+
+    .cancel-btn {
+        color: #275df5;
+        margin-right: 37px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+    }
+    a {
+        text-decoration: none;
+    }
+
+    .btn-dark-ot {
+        background: #275df5;
+        border-radius: 40px;
+        border: none;
+        color: #ffffff;
+        height: 40px;
+        padding: 11px 25px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+    }
+
+.fontsty{
+    font-size: 1.4rem;
+}
+
+.dynamicchange{
+    display: flex;
+}
+
+.hidden { display: none; }
+
+ /* Style for the button */
+ #educationButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: filter 0.3s;
+}
+
+/* The box is hidden by default */
+#infoBox {
+    display: none;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+/* Styling for the close button (X) */
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.button {
+    padding: 5px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    transition: filter 0.3s;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.infoBox {
+    display: none;
+    margin-top: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+    color: black;
+}
+
+.skillheading{
+    background-color: #f9f9f9;
+    padding: .8rem 1.2rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+
+}
+
+.skillbody{
+    padding: .8rem 1.2rem;
+    margin-top: 20px;
+}
+
+.ocp_box_heading {
+    font-size: 1.5rem;
+    line-height: 32px;
+    padding-right: 24px;
+    color: #0c0d10;
+    font-weight: 700;
+}
+
+.coreexp{
+    width: 20%;
+    padding: 5px;
+}
+.qulificationsetting{
+    padding-left: 20px;
+}
+
+.expskill {
+    width: 50%;
+    padding: 5px;
+}
+
+/* Basic dropdown styling */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;  
+    padding: 5px;
+}
+
+.dropdown div {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.dropdown div:hover {
+    background-color: #ddd;
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.loading-text {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px; /* Space between the text and loading line */
+}
+
+.loading-line {
+    width: 50%; /* Adjust the line length here */
+    max-width: 100px; /* Maximum width to prevent it from becoming too wide on larger screens */
+    height: 4px;
+    background-color: #e0e0e0;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-line::before {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    background-color: #3498db;
+    animation: load 2s infinite;
+}
+
+@keyframes load {
+    0% { width: 0%; }
+    50% { width: 100%; }
+    100% { width: 0%; }
+}
+
+.jobdetailshead{
+    background-color: white;
+    padding: 10px;
+}
+
+.question-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.dropdown1{
+    display: block;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    padding: 5px;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{%extends 'templates/feed.html'%}
+{%block title %}{{post.title}}{%endblock%}
+{%block content%}
+    <div style="color: black">
+    {%   with x=post.images.name|slice:"-3::" %}
+        {{ x }}
+
+           {% if x == "jpg"%}
+           <img id="div5" src="/media/{{ post.images }}" width="300px" height="300px">
+           {% elif x == "mp4" %}
+               <video autoplay="autoplay" controls="controls" width="300px" height="300px">
+						<source src="/media/{{ post.images }}" type="video/mp4"></source>
+               </video>
+            {% elif x == "pdf" %}
+               <p>Downloadable file</p>
+               <ol>
+                    <li>
+                        <a href="/media/{{ post.images }}" target="_blank" id="h2">pdf file</a>
+                    </li>
+               </ol>
+            {% elif x == "mp3" %}
+               <audio controls>
+                    <source src="/media/{{ post.images }}" type="audio/mp3">
+               </audio>
+            {% endif %}
+             {% endwith %}
+    <p id='date'>Published on {{post.publish}} by {{post.author|title}}</p>
+    {{post.body|linebreaks}}
+    <br/>
+    <a href="/{{post.id}}/share/" class="btn btn-lg btn-primary">Share Post By Email</a>
+    <h2>Similar Posts</h2>
+    {% if similar_posts %}
+        {% for post in similar_posts %}
+            <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        {% endfor %}
+    {% else %}
+        <p>No Similar Posts</p>
+    {% endif %}
+    {% with comment.count as comment_count %}
+        <h2>{{ comment_count }} Comment{{ comment_count|pluralize }}</h2>
+    {% endwith %}
+    {% if comment %}
+        {% for comment in comment %}
+            <p id="ch">comment {{ forloop.counter }} by {{ comment.name }} on {{ comment.created }}
+            <a href="/{{ comment.id }}/delete/">Delete-Comment</a>
+            </p>
+                <div id="cb">{{ comment.body|linebreaks }}</div>
+        {% endfor %}
+        {% else %}
+            <p>There are No Comment Yet !!!</p>
+    {% endif %}
+    {% if csubmit %}
+        <h2>your comment add successfully</h2>
+    {% else %}
+        <form method="post" action="{{ post_detail }}">
+            {{ form.as_p }}
+            {% csrf_token %}
+           <a href=""><button type="submit">Submit</button></a>
+            <a href="/tag/"><button type="button">Back</button></a>
+        </form>
+    {% endif %}
+    </div>
+
+{%endblock%}

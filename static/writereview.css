@@ -1,0 +1,544 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+    transition: 0.3s all ease-in-out;
+   }
+   body{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   background-color: #fff;
+
+   }
+   .shadow-wrap{
+    border-radius: 5px;
+    padding: 25px;
+    background-color:#F0F2FB;
+    
+   }
+   .form-wrap{
+    background-color: #fff;
+   padding: 70px;
+   }
+   .form-wrap form *{
+    width: 100%;
+   }
+   .form-wrap form label{
+   margin-bottom: 5px;
+   font-size: 14px;
+   font-weight: 700;
+   line-height: 26px; 
+   }
+   .form-wrap form input{
+   padding: 12px 20px;
+   border-radius: 5px;
+   border: 1px solid #DAE1F5;
+   background: #FFF; 
+   color: #545D7A; 
+   }
+   #id_username{
+    margin-bottom: 20px;
+   }
+   .form-wrap button{
+    border-radius: 5px;
+   background: #10182F;
+   color: #FFF;
+   cursor: pointer;
+   text-align: center;
+   font-size: 16px;
+   padding: 12px 68px;
+   font-weight: 700;
+   border: 1px solid transparent;
+   margin-top: 30px;
+   line-height: 26px; 
+   }
+   .signup-link{
+    color: #10182F;
+    font-size: 15px;
+    margin-top: 20px;
+    text-align: center;
+    line-height: 25px;
+    display: block;
+   text-decoration: none;
+   }
+   .signup-link:hover{
+    text-decoration: underline;
+   }
+   .form-wrap button:hover{
+    background-color: #fff;
+    color: #10182F;
+    border-color: #10182F;
+   
+   }
+   body {
+    background-color: #eee;
+  }
+  
+  .success {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px 15px;
+    max-width: 400px;
+    margin: 50px auto 0;
+    display: none;
+    &__icon {
+      display: block;
+      margin: auto;
+    }
+    &__message {
+      color: #757575;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+  }
+  
+  form {
+    background-color: #fff;
+    border: solid 1px lightgrey;
+    border-radius: 5px;
+    padding: 30px 15px;
+    max-width: 100%;
+    margin: 20px auto 0;
+  }
+  
+  form > div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  
+  label span {
+    color: red;
+  }
+  
+  input, textarea {
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    padding: 10px 20px 10px 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  input[type="submit"] {
+    cursor: pointer;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 8px;
+    font-size: 14px;
+    display: none;
+  }
+  
+  .input-error {
+    border-color: red;
+  }
+ 
+
+  @media only screen and (min-width: 769px) {
+    .ab-rating-input {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+}
+
+.mg-top-24 {
+    margin-top: 1.5rem;
+}
+
+@media only screen and (min-width: 769px) {
+    .ab-rating-input .flex-row {
+        min-width: 21rem;
+    }
+}
+
+.ab-rating-input .flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    max-width: 21.875rem;
+}
+
+span{
+    color: red;
+}
+p{
+    display: inline;
+    font-weight: bold;
+}
+
+#Likes{
+    max-height: 210px;
+    height: 130px;
+    resize: none;
+}
+#dropdown{
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    padding: 10px 20px 10px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #ecf2fe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+}
+
+.plans {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  max-width: 970px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 20px;
+  flex-wrap: wrap;
+
+
+
+
+
+
+}
+
+.plans .plan input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.plans .plan {
+  cursor: pointer;
+  width: 48.5%;
+}
+
+.plans .plan .plan-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 2px solid #e1e2e7;
+  border-radius: 10px;
+  -webkit-transition: -webkit-box-shadow 0.4s;
+  transition: -webkit-box-shadow 0.4s;
+  -o-transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s;
+  transition: box-shadow 0.4s, -webkit-box-shadow 0.4s;
+  position: relative;
+}
+
+.plans .plan .plan-content img {
+  margin-right: 30px;
+  height: 72px;
+}
+
+.plans .plan .plan-details span {
+  display: block;
+  font-size: 15px;
+  line-height: 24px;
+  color: #252f42;
+}
+
+.container .title {
+  font-size: 20px;
+  font-weight: 500;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  color: #252f42;
+  margin-bottom: 20px;
+}
+
+.plans .plan .plan-details p {
+  color: #646a79;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.plans .plan .plan-content:hover {
+  -webkit-box-shadow: 0px 3px 5px 0px #e8e8e8;
+  box-shadow: 0px 3px 5px 0px #e8e8e8;
+}
+
+
+.plans .plan input[type="radio"]:checked + .plan-content:after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  background: #216fe0;
+  right: 20px;
+  top: 20px;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  -webkit-box-shadow: 0px 0px 0px 2px #0066ff;
+  box-shadow: 0px 0px 0px 2px #0066ff;
+}
+
+.plans .plan input[type="radio"]:checked + .plan-content {
+  border: 2px solid #216ee0;
+  background: #eaf1fe;
+  -webkit-transition: ease-in 0.3s;
+  -o-transition: ease-in 0.3s;
+  transition: ease-in 0.3s;
+}
+
+@media screen and (max-width: 991px) {
+  .plans {
+    margin: 0 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .plans .plan {
+    width: 100%;
+  }
+
+  .plan.complete-plan {
+    margin-top: 20px;
+  }
+
+  .plans .plan .plan-content .plan-details {
+    width: 70%;
+    display: inline-block;
+  }
+
+  .plans .plan input[type="radio"]:checked + .plan-content:after {
+    top: 45%;
+    -webkit-transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    transform: translate(-50%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .plans .plan .plan-content .plan-details {
+    width: 60%;
+    display: inline-block;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .plans .plan .plan-content img {
+    margin-bottom: 20px;
+    height: 56px;
+    -webkit-transition: height 0.4s;
+    -o-transition: height 0.4s;
+    transition: height 0.4s;
+  }
+
+  .plans .plan input[type="radio"]:checked + .plan-content:after {
+    top: 20px;
+    right: 10px;
+  }
+
+  .plans .plan .plan-content .plan-details {
+    width: 100%;
+  }
+
+  .plans .plan .plan-content {
+    padding: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: baseline;
+    -ms-flex-align: baseline;
+    align-items: baseline;
+  }
+}
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.rating { 
+  border: none;
+  float: left;
+  margin:0px 0px 0px 28px;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin-top: 2px;
+  padding:0px 5px 0px 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+	color: #fff; 
+	float: right;
+	border-radius:15px;
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { 
+  cursor:pointer;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { 
+  cursor:pointer;
+}
+
+
+body {
+  background: #ededed;
+  font-family: Sans-Serif;
+}
+#wrapper {
+  height: 200px;
+  width: 400px;
+  background: white;
+  box-shadow: 0px 16px 24px 2px rgba(0,0,0,0.14) , 0px 6px 30px 5px rgba(0,0,0,0.12) , 0px 8px 10px -7px rgba(0,0,0,0.2);
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 50%;
+  transform: translateX(-200px);
+}
+
+#wrapper p {
+  color: rgba(0,0,0,0.65);
+  font-size: 18px;
+  border-bottom: 1px solid rgba(0,0,0,0.25);
+  padding: 15px 20px;
+  margin: 0;
+  margin-bottom: 18px;
+}
+
+
+/* label container */
+.radio-button-container {
+  color: rgba(0,0,0,0.75);
+  display: block;
+  position: relative;
+  padding-left: 45px;
+  line-height: 25px;
+  margin-bottom: 12px;
+  margin-left: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio-button-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: rgba(0,0,0,0);
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.25);
+  transition: all 0.3s;
+}
+
+/* On mouse-over, add a grey background color */
+.radio-button-container:hover input ~ .checkmark {
+  border-color: rgba(0,0,0,0.5);
+}
+
+/* When the radio button is checked */
+.radio-button-container input:checked ~ .checkmark {
+  background-color: rgba(0,0,0,0);
+  border-color: teal;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio-button-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio-button-container .checkmark:after {
+ 	top: 4px;
+	left: 4px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: teal;
+}
+
+
+
+
+ 
+
+
+  

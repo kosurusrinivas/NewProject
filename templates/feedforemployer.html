@@ -1,0 +1,154 @@
+{% load ambision_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'feedforemployer.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
+    <title>Document</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+    <div class="header" style="min-height: 50px;">
+<div class="wrapper ov " >
+    <a class="homePgLogo fl" href="" id="recruiterLogo"></a>
+    <ul class="fl nav" style="margin-top:4px;">
+                    <li style="margin-left:28px">
+                        <a target="_blank" rel="noopener" id="home" href="" class="header-home">Home</a>
+                    </li>
+                    <li class="addTo ddMenu" id="productsMenu">
+                        <div class="dspF dropdown">
+                            <div class="ulTxt " id="hoverName">Buy Online</div>
+                            <div class="dropdown-content" id="dropdownMenu">
+                                <a href="#">Products On Offer (Buy Online) </a>
+                                <a href="#">Resume Database Access (RESDEX) </a>
+                                <a href="#">Job Posting </a>
+                            </div>
+                        </div>
+                    <ul class="mList" style="width: 324px; top: 47px; display: none;"><a href="https://www.naukri.com/recruit/buy-resume-database-access-packages" style="color:inherit;font-family: inherit;"><li rel="demobuy" class="">Products On Offer (Buy Online) </li></a><a href="https://www.naukri.com/recruit/resume-database-access-resdex" style="color:inherit;font-family: inherit;"><li rel="resdex" class="">Resume Database Access (RESDEX) </li></a><a href="https://www.naukri.com/recruit/job-posting" style="color:inherit;font-family: inherit;"><li rel="jp" class="">Job Posting </li></a></ul></li>
+                </ul>
+            <div class="fr loginInState" style="margin-left:-12px">
+                <div style="display:flex;padding-top:3px">
+                            <div style="padding-right:10px;">
+                                <a class="jobSeekerLink"  href="/profile/">JobSeeker
+                                </a>
+                            </div>
+                            <a href="http://my.naukri.com/" style="padding-top:2px">
+                                <div class="job-seeker-icon"></div>
+                            </a>
+                        </div>
+                </div>
+                <div class="fr cart" id="header-cart" >
+                                    <div id="cart-heading" class="ft11">
+                                        <div style="display:flex;justify-content:space-between">
+                                            <div class="cart-icon">
+                                                <span id="notif"></span>
+                                            </div>
+                                            <div class="cart-label">Cart</div>
+                                            <div class="cartDownArrow" id="cart-header-arrow" style="margin-left:3px"></div>
+                                        </div>
+                                    </div>
+                                    <div id="ddCart">
+                                        <div class="cartDD nScroll" style="top: 130px; display: none;">
+                                            
+                <div class="cart-empty-container" id="empty-container" style="display:block">
+                    <div class="cart-empty-image"></div>
+                    <div>
+                        <p class="cart-empty-head">
+                            Your Cart is Empty
+                        </p>
+                        <p class="cart-empty-subhead">
+                            Added Products will appear here
+                        </p>
+                    </div>
+                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                <div class="fr call-us">
+                    <div id="call-us-number" class="ft14">
+                        <div id="call-us-heading" class="call-us-heading">India Sales Toll Free (9:30 AM to 6:30PM)</div>
+                        <div class="dspF">
+                            <div class="contact-sales"></div>
+                            <div id="toll-number" class="call-number">1800-102-2558</div>
+                            <div class="cartDownArrow" style="display:inline-block"></div>
+                        </div>
+                    </div>
+                    
+        
+                    <style>.header .call-us:hover .callUsDD { padding: 10px 22px !important; }</style>
+
+                </div></div></div></div></header>
+                <div id="loading-overlay">
+
+                    <p class="loading-text"><img src="https://i0.wp.com/scientificiq.org/wp-content/uploads/2024/10/journals-publishing.png?fit=534%2C120&amp;ssl=1" width="200" height="45"></p>
+                    <div class="loading-line"></div>
+                </div>
+    {% block content %}{% endblock %}
+    
+    <script>
+        const loadingOverlay = document.getElementById('loading-overlay');
+
+function checkNetworkAndPageStatus() {
+    if (navigator.onLine && document.readyState === 'complete') {
+        loadingOverlay.style.display = 'none';
+    } else {
+        loadingOverlay.style.display = 'flex';
+    }
+}
+
+window.addEventListener('beforeunload', function () {
+    loadingOverlay.style.display = 'flex';
+});
+
+window.addEventListener('load', function () {
+    checkNetworkAndPageStatus();
+});
+
+window.addEventListener('online', checkNetworkAndPageStatus);
+window.addEventListener('offline', function () {
+    loadingOverlay.style.display = 'flex';
+});
+
+window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+        checkNetworkAndPageStatus();
+    }
+});
+
+setInterval(checkNetworkAndPageStatus, 3000);
+
+
+    </script>
+    <script src="{% static 'feed.css' %}"></script>
+    <script>
+        // Get elements
+        const hoverName = document.getElementById('hoverName');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+    
+        // Show dropdown on hover
+        hoverName.addEventListener('mouseover', function() {
+            dropdownMenu.style.display = 'block';
+        });
+    
+        // Hide dropdown when not hovering
+        hoverName.addEventListener('mouseout', function() {
+            dropdownMenu.style.display = 'none';
+        });
+    
+        // Alternatively, you can keep the dropdown open while hovering over it
+        dropdownMenu.addEventListener('mouseover', function() {
+            dropdownMenu.style.display = 'block';
+        });
+    
+        dropdownMenu.addEventListener('mouseout', function() {
+            dropdownMenu.style.display = 'none';
+        });
+    </script>
+    
+</body>
+</html>

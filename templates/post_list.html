@@ -1,0 +1,100 @@
+{% extends 'templates/feed.html' %}
+{% load static %}
+{% block title %}Document{% endblock %}
+{% block content %}
+    <div style="margin-top:60px;"></div>
+    {% if tag %}
+        <h2>Posts tagged with "{{ tag.name }}"</h2>
+    {% endif %}
+    {% for post in post_list %}
+        <div class="container">
+            <div class="divsty">
+                <div class="profilecontainer">
+                    <div class="profilecontainer2">
+                        {% if post.post_type == 'company' and post.company_page %}
+                            <!-- Display company logo -->
+                            {% if post.company_page.logo %}
+                                <a><img src="/media/{{ post.company_page.logo }}" class="profilepic"></a>
+                            {% else %}
+                                <a><img src="{% static 'images/default_company_logo.png' %}" class="profilepic"></a>
+                            {% endif %}
+                        {% else %}
+                            <!-- Display user profile image -->
+                            <a><img src="{% static 'images/profile img1.png' %}" class="profilepic"></a>
+                        {% endif %}
+                    </div>
+                    <div class="profilename">
+                        {% if post.post_type == 'company' and post.company_page %}
+                            <!-- Display company name -->
+                            <a href="#">{{ post.company_page.name }}</a>
+                        {% else %}
+                            <!-- Display user name -->
+                            <a href="{% url 'user_profile' post.author.username %}">{{ post.author.username }}</a>
+                        {% endif %}
+                        <!-- Optional: Display company tagline if it's a company post -->
+                        {% if post.post_type == 'company' and post.company_page.tagline %}
+                            <span class="designation">{{ post.company_page.tagline }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="container1">
+                    <h2>
+                        <a href="{{ post.get_absolute_url }}" id="h2">
+                            <p style="display: none;">{{ post.title }}</p>
+                            {% with x=post.images.name|slice:"-3::" %}
+                                {% if x == "jpg" %}
+                                    <img id="div5" class="imagessty" src="/media/{{ post.images }}">
+                                {% elif x == "mp4" %}
+                                    <video autoplay="autoplay" controls="controls" class="videosty">
+                                        <source src="/media/{{ post.images }}" type="video/mp4"></source>
+                                    </video>
+                                {% elif x == "pdf" %}
+                                    <p>Downloadable file</p>
+                                    <ol>
+                                        <li>
+                                            <a href="/media/{{ post.images }}">PDF file</a>
+                                        </li>
+                                    </ol>
+                                {% endif %}
+                            {% endwith %}
+                        </a>
+                    </h2>
+                    <div class="parasty">
+                        {{ post.body|truncatewords:1000|linebreaks }}
+                    </div>
+                </div>
+                <div class="container2">
+                    <p id='date'>
+                        Published on {{ post.publish }}
+                        {% if post.post_type == 'company' and post.company_page %}
+                            by {{ post.company_page.name }}
+                        {% else %}
+                            by {{ post.author|title }}
+                        {% endif %}
+                    </p>
+                    <br/>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {% include 'pagination.html' with page=post_list %}
+    <script>
+        document.getElementById('follow-button').addEventListener('click', function() {
+            var userId = this.getAttribute('data-user-id');
+            fetch(`/follow/${userId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}',
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+{% endblock %}
